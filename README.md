@@ -148,6 +148,76 @@ champions_played = no_summary.groupby(["league", "gameid", "teamname"])[["champi
 champions_played
 ```
 
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>champion</th>
+    </tr>
+    <tr>
+      <th>league</th>
+      <th>gameid</th>
+      <th>teamname</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="10" valign="top">CBLOL</th>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_2695708</th>
+      <th>FURIA</th>
+      <td>[Akali, Xin Zhao, Orianna, Jhin, Leona]</td>
+    </tr>
+    <tr>
+      <th>LOUD</th>
+      <td>[Renekton, Viego, Corki, Aphelios, Nautilus]</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_2695774</th>
+      <th>Flamengo Esports</th>
+      <td>[Gwen, Xin Zhao, Orianna, Jhin, Maokai]</td>
+    </tr>
+    <tr>
+      <th>Netshoes Miners</th>
+      <td>[Tryndamere, Viego, Vex, Kai'Sa, Leona]</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_2695807</th>
+      <th>INTZ</th>
+      <td>[Gwen, Xin Zhao, LeBlanc, Sivir, Karma]</td>
+    </tr>
+    <tr>
+      <th>KaBuM! e-Sports</th>
+      <td>[Graves, Lee Sin, Viktor, Caitlyn, Nautilus]</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_2695835</th>
+      <th>RED Canids</th>
+      <td>[Gwen, Xin Zhao, Akali, Samira, Rell]</td>
+    </tr>
+    <tr>
+      <th>Rensga eSports</th>
+      <td>[Gragas, Viego, Corki, Ezreal, Yuumi]</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_2696159</th>
+      <th>Liberty</th>
+      <td>[Graves, Jarvan IV, Zoe, Caitlyn, Lux]</td>
+    </tr>
+    <tr>
+      <th>Rensga eSports</th>
+      <td>[Jayce, Viego, Viktor, Jhin, Karma]</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
 |                                                        | champion                                               |
 |:-------------------------------------------------------|:-------------------------------------------------------|
 | ('CBLOL', 'ESPORTSTMNT01_2695708', 'FURIA')            | ['Akali', 'Xin Zhao', 'Orianna', 'Jhin', 'Leona']      |
