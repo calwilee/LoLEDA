@@ -16,5 +16,14 @@ In order to answer this question, we'll use a (choose test) to (describe process
 For this project, we are going to look at Oracle's Elixer's League of Legends Competitive Matches data from 2022. This dataset onlines information about the overall stats of the game and the performance of the players/team across multiple matches and leagues. We have selected the 2022 dataset as it is complete; according to Oracle's Elixer,  datasets are updated once per day, so the 2023 dataset would be subject to daily updates before the season's end, and our analysis would quickly become outdated. By using 2022, we ensure that our analysis uses the most recent and complete dataset available right now.
 
 We'll start by loading in the data as `lol_2022`.
-![lolimg](/images/uncleaneddf.png)
+![dataframe with uncleaned league of legends data](/images/uncleaneddf.png)
+We can see that `lol_2022` contains 149400 rows that contain information about each player during a match and 123 columns that describes different attributes of the game. Let's take a look at what the columns of `lol_2022` are.
 
+|   num_top_banned |        0 |        1 |        2 |          3 |          4 |
+|-----------------:|---------:|---------:|---------:|-----------:|-----------:|
+|                0 | 0.52459  | 0.552326 | 0.644444 |   0.588235 |   0.444444 |
+|                1 | 0.468085 | 0.509954 | 0.586558 |   0.567073 |   0.473684 |
+|                2 | 0.451115 | 0.485774 | 0.520958 |   0.532338 |   0.612903 |
+|                3 | 0.45045  | 0.456753 | 0.489855 |   0.48913  |   0.722222 |
+|                4 | 0.427273 | 0.453988 | 0.549451 |   0.458333 |   1        |
+|                5 | 0.368421 | 0.692308 | 0.285714 | nan        | nan        |
