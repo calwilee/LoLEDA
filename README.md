@@ -62,7 +62,7 @@ lol_2022
 | LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | ...   | Rumble  | Thresh     |        0 |
 
 ## Cleaning and EDA
-
+![cute poros :D](/images/trsnsiont2.webp)
 Before we can start answering the question, we need to clean the data and extract any information that might be useful to us.
 
 For this analysis, we are going to be focusing on tier-one leagues, Worlds, and MSI. Tier-one leagues consists of the best players and teams playing in tournaments in their region. For example, LCS is the tier-one competition in the US and LPL is the one for China. Worlds is the big tournament that takes place sometimes during October to November where the best teams globally compete against each other for the world. MSI is the is the Mid-Spring Invitational where multiple teams, usually teams from tier-one leagues, around the world complete against one another similar to worlds. 
