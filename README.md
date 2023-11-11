@@ -16,7 +16,7 @@ In order to answer this question, we'll use a (choose test) to (describe process
 For this project, we are going to look at Oracle's Elixer's League of Legends Competitive Matches data from 2022. This dataset onlines information about the overall stats of the game and the performance of the players/team across multiple matches and leagues. We have selected the 2022 dataset as it is complete; according to Oracle's Elixer,  datasets are updated once per day, so the 2023 dataset would be subject to daily updates before the season's end, and our analysis would quickly become outdated. By using 2022, we ensure that our analysis uses the most recent and complete dataset available right now.
 
 We'll start by loading in the data as `lol_2022`.
-<table border="1" class="dataframe">
+<table id="example" class="display nowrap" style="width:100%">
   <thead>
     <tr style="text-align: right;">
       <th></th>
