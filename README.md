@@ -49,19 +49,18 @@ lol_2022 = lol_2022[[ "league", "gameid", "teamname", "ban1", "ban2", "ban3", "b
 lol_2022
 ```
 
-| ('league',)   | ('gameid',)      | ('teamname',)      | ('ban1',)   | ('...',)   | ('ban5',)   | ('champion',)   |   ('result',) |
-|:--------------|:-----------------|:-------------------|:------------|:-----------|:------------|:----------------|--------------:|
-| LPL           | 8401-8401_game_1 | Oh My God          | Renekton    | ...        | Camille     | Gwen            |             1 |
-| LPL           | 8401-8401_game_1 | Oh My God          | Renekton    | ...        | Camille     | Jarvan IV       |             1 |
-| LPL           | 8401-8401_game_1 | Oh My God          | Renekton    | ...        | Camille     | Syndra          |             1 |
-| LPL           | 8401-8401_game_1 | Oh My God          | Renekton    | ...        | Camille     | Jinx            |             1 |
-| LPL           | 8401-8401_game_1 | Oh My God          | Renekton    | ...        | Camille     | Nautilus        |             1 |
-| LPL           | 8401-8401_game_1 | ThunderTalk Gaming | Samira      | ...        | Rumble      | Jax             |             0 |
-| LPL           | 8401-8401_game_1 | ThunderTalk Gaming | Samira      | ...        | Rumble      | Xin Zhao        |             0 |
-| LPL           | 8401-8401_game_1 | ThunderTalk Gaming | Samira      | ...        | Rumble      | Vex             |             0 |
-| LPL           | 8401-8401_game_1 | ThunderTalk Gaming | Samira      | ...        | Rumble      | Aphelios        |             0 |
-| LPL           | 8401-8401_game_1 | ThunderTalk Gaming | Samira      | ...        | Rumble      | Thresh          |             0 |
-
+| league   | gameid           | teamname           | ban1     | ...   | ban5    | champion   |   result |
+|:---------|:-----------------|:-------------------|:---------|:------|:--------|:-----------|---------:|
+| LPL      | 8401-8401_game_1 | Oh My God          | Renekton | ...   | Camille | Gwen       |        1 |
+| LPL      | 8401-8401_game_1 | Oh My God          | Renekton | ...   | Camille | Jarvan IV  |        1 |
+| LPL      | 8401-8401_game_1 | Oh My God          | Renekton | ...   | Camille | Syndra     |        1 |
+| LPL      | 8401-8401_game_1 | Oh My God          | Renekton | ...   | Camille | Jinx       |        1 |
+| LPL      | 8401-8401_game_1 | Oh My God          | Renekton | ...   | Camille | Nautilus   |        1 |
+| LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | ...   | Rumble  | Jax        |        0 |
+| LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | ...   | Rumble  | Xin Zhao   |        0 |
+| LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | ...   | Rumble  | Vex        |        0 |
+| LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | ...   | Rumble  | Aphelios   |        0 |
+| LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | ...   | Rumble  | Thresh     |        0 |
 
 
 
