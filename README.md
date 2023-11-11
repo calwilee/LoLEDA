@@ -106,6 +106,64 @@ lol_2022
 | LPL      | 8401-8401_game_1 | Oh My God          | Renekton | ...   | Camille | nan        |        1 |
 | LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | ...   | Rumble  | nan        |        0 |
 
+We can see from looking at the ban columns in the above DataFrame that there appears to be rows that are repeating. The reason this is happening is because most of the rows represents a player in the game. Since there are 5 players per team and the team has the same bans, all of the columns except for `'champion'` will have repeated values. Our goal now is to combine these repeated rows into one so that we can easily access information about what a team chose in every game and the results of that choice. In order to do that, we need to combine the information in `'champion'` into a single value so that when we aggregate, it won't cause problems. 
+
+Upon further invesigation, we find that some of the values in `'champion'` are missing. When looking into the data, we can see that there are actually summary rows that summarize the results of the match and the statistics of each team. In order to combine the values in `'champion'` into a single value, we will drop these summary rows.
+
+```py
+"""
+Drops the rows with null values in the 'champion' column by querying for the values that aren't nan
+"""
+
+no_summary = lol_2022[lol_2022["champion"].isna() == False]
+
+no_summary
+```
+
+| league   | gameid           | teamname           | ban1     | ...   | ban5    | champion   |   result |
+|:---------|:-----------------|:-------------------|:---------|:------|:--------|:-----------|---------:|
+| LPL      | 8401-8401_game_1 | Oh My God          | Renekton | ...   | Camille | Gwen       |        1 |
+| LPL      | 8401-8401_game_1 | Oh My God          | Renekton | ...   | Camille | Jarvan IV  |        1 |
+| LPL      | 8401-8401_game_1 | Oh My God          | Renekton | ...   | Camille | Syndra     |        1 |
+| LPL      | 8401-8401_game_1 | Oh My God          | Renekton | ...   | Camille | Jinx       |        1 |
+| LPL      | 8401-8401_game_1 | Oh My God          | Renekton | ...   | Camille | Nautilus   |        1 |
+| LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | ...   | Rumble  | Jax        |        0 |
+| LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | ...   | Rumble  | Xin Zhao   |        0 |
+| LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | ...   | Rumble  | Vex        |        0 |
+| LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | ...   | Rumble  | Aphelios   |        0 |
+| LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | ...   | Rumble  | Thresh     |        0 |
+
+
+Next we'll define an custom aggregation function to combine the 5 champions each team played into a single value by putting them into a list. 
+
+```py
+def combine_champion(series):
+    return series.tolist()
+```
+After that, we'll use a groupby function to index `no_summary` by `'league'`, `'gameid'`, and `'teamname'` and then aggregate the champion column so that we can get one value for all of the champions a team played during each game in a specific league.
+
+```py
+champions_played = no_summary.groupby(["league", "gameid", "teamname"])[["champion"]].agg(combine_champion)
+
+champions_played
+```
+
+|                                                        | champion                                               |
+|:-------------------------------------------------------|:-------------------------------------------------------|
+| ('CBLOL', 'ESPORTSTMNT01_2695708', 'FURIA')            | ['Akali', 'Xin Zhao', 'Orianna', 'Jhin', 'Leona']      |
+| ('CBLOL', 'ESPORTSTMNT01_2695708', 'LOUD')             | ['Renekton', 'Viego', 'Corki', 'Aphelios', 'Nautilus'] |
+| ('CBLOL', 'ESPORTSTMNT01_2695774', 'Flamengo Esports') | ['Gwen', 'Xin Zhao', 'Orianna', 'Jhin', 'Maokai']      |
+| ('CBLOL', 'ESPORTSTMNT01_2695774', 'Netshoes Miners')  | ['Tryndamere', 'Viego', 'Vex', "Kai'Sa", 'Leona']      |
+| ('CBLOL', 'ESPORTSTMNT01_2695807', 'INTZ')             | ['Gwen', 'Xin Zhao', 'LeBlanc', 'Sivir', 'Karma']      |
+| ('CBLOL', 'ESPORTSTMNT01_2695807', 'KaBuM! e-Sports')  | ['Graves', 'Lee Sin', 'Viktor', 'Caitlyn', 'Nautilus'] |
+| ('CBLOL', 'ESPORTSTMNT01_2695835', 'RED Canids')       | ['Gwen', 'Xin Zhao', 'Akali', 'Samira', 'Rell']        |
+| ('CBLOL', 'ESPORTSTMNT01_2695835', 'Rensga eSports')   | ['Gragas', 'Viego', 'Corki', 'Ezreal', 'Yuumi']        |
+| ('CBLOL', 'ESPORTSTMNT01_2696159', 'Liberty')          | ['Graves', 'Jarvan IV', 'Zoe', 'Caitlyn', 'Lux']       |
+| ('CBLOL', 'ESPORTSTMNT01_2696159', 'Rensga eSports')   | ['Jayce', 'Viego', 'Viktor', 'Jhin', 'Karma']          |
+
+
+
+
 
 
 |   num_top_banned |        0 |        1 |        2 |          3 |          4 |
