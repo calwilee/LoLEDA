@@ -25,6 +25,46 @@ filepath = Path('data') / '2022lol.csv'
 lol_2022 = pd.read_csv(filepath)
 lol_2022
 ```
+We can see that `lol_2022` contains 149400 rows that has information about each player during a game and 123 columns that describes different attributes of the game. Let's look at what the columns of `lol_2022` are.
+```py
+print(lol_2022.columns.tolist())
+```
+['gameid', 'datacompleteness', 'url', 'league', 'year', 'split', 'playoffs', 'date', 'game', 'patch', 'participantid', 'side', 'position', 'playername', 'playerid', 'teamname', 'teamid', 'champion', 'ban1', 'ban2', 'ban3', 'ban4', 'ban5', 'gamelength', 'result', 'kills', 'deaths', 'assists', 'teamkills', 'teamdeaths', 'doublekills', 'triplekills', 'quadrakills', 'pentakills', 'firstblood', 'firstbloodkill', 'firstbloodassist', 'firstbloodvictim', 'team kpm', 'ckpm', 'firstdragon', 'dragons', 'opp_dragons', 'elementaldrakes', 'opp_elementaldrakes', 'infernals', 'mountains', 'clouds', 'oceans', 'chemtechs', 'hextechs', 'dragons (type unknown)', 'elders', 'opp_elders', 'firstherald', 'heralds', 'opp_heralds', 'firstbaron', 'barons', 'opp_barons', 'firsttower', 'towers', 'opp_towers', 'firstmidtower', 'firsttothreetowers', 'turretplates', 'opp_turretplates', 'inhibitors', 'opp_inhibitors', 'damagetochampions', 'dpm', 'damageshare', 'damagetakenperminute', 'damagemitigatedperminute', 'wardsplaced', 'wpm', 'wardskilled', 'wcpm', 'controlwardsbought', 'visionscore', 'vspm', 'totalgold', 'earnedgold', 'earned gpm', 'earnedgoldshare', 'goldspent', 'gspd', 'total cs', 'minionkills', 'monsterkills', 'monsterkillsownjungle', 'monsterkillsenemyjungle', 'cspm', 'goldat10', 'xpat10', 'csat10', 'opp_goldat10', 'opp_xpat10', 'opp_csat10', 'golddiffat10', 'xpdiffat10', 'csdiffat10', 'killsat10', 'assistsat10', 'deathsat10', 'opp_killsat10', 'opp_assistsat10', 'opp_deathsat10', 'goldat15', 'xpat15', 'csat15', 'opp_goldat15', 'opp_xpat15', 'opp_csat15', 'golddiffat15', 'xpdiffat15', 'csdiffat15', 'killsat15', 'assistsat15', 'deathsat15', 'opp_killsat15', 'opp_assistsat15', 'opp_deathsat15']
+
+Upon looking at this list, we can see that not every columns will be useful to answering our question. The ones we are interested in are `'league'`, `'gameid'`, `'teamname'`, `'ban1'`, `'ban2'`, `'ban3'`, `'ban4'`, `'ban5'`, `'champion'`, and `'result'`. 
+
+- `'league'`(str): The league/tournament the game took place
+- `'gameid'`(str): The game's id
+- `'teamname'`(str): The name of the team playing during the match
+- `'ban1'`(str): The name of the champion that was banned first
+- `'ban2'`(str): The name of the champion that was banned second
+- `'ban3'`(str): The name of the champion that was banned third
+- `'ban4'`(str): The name of the champion that was banned fourth
+- `'ban5'`(str): The name of the champion that was banned fifth
+- `'champion'`(str): The name of the champion the player is playing
+- `'result'`(int): The result of the match (0 = Team lost, 1 = Team won)
+
+```py
+lol_2022 = lol_2022[[ "league", "gameid", "teamname", "ban1", "ban2", "ban3", "ban4", "ban5", "champion", "result"]]
+lol_2022
+```
+| league   | gameid           | teamname           | ban1     | ban2    | ban3    | ban4    | ban5    | champion   |   result |
+|:---------|:-----------------|:-------------------|:---------|:--------|:--------|:--------|:--------|:-----------|---------:|
+| LPL      | 8401-8401_game_1 | Oh My God          | Renekton | Lee Sin | Caitlyn | Jayce   | Camille | Gwen       |        1 |
+| LPL      | 8401-8401_game_1 | Oh My God          | Renekton | Lee Sin | Caitlyn | Jayce   | Camille | Jarvan IV  |        1 |
+| LPL      | 8401-8401_game_1 | Oh My God          | Renekton | Lee Sin | Caitlyn | Jayce   | Camille | Syndra     |        1 |
+| LPL      | 8401-8401_game_1 | Oh My God          | Renekton | Lee Sin | Caitlyn | Jayce   | Camille | Jinx       |        1 |
+| LPL      | 8401-8401_game_1 | Oh My God          | Renekton | Lee Sin | Caitlyn | Jayce   | Camille | Nautilus   |        1 |
+| LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | Diana   | Akali   | LeBlanc | Rumble  | Jax        |        0 |
+| LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | Diana   | Akali   | LeBlanc | Rumble  | Xin Zhao   |        0 |
+| LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | Diana   | Akali   | LeBlanc | Rumble  | Vex        |        0 |
+| LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | Diana   | Akali   | LeBlanc | Rumble  | Aphelios   |        0 |
+| LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | Diana   | Akali   | LeBlanc | Rumble  | Thresh     |        0 |
+
+
+
+
+
 
 
 |   num_top_banned |        0 |        1 |        2 |          3 |          4 |
