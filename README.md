@@ -213,25 +213,310 @@ champions_played
   </tbody>
 </table>
 
+An additional thing to note is that this DataFrame confirms that the previous missing values in `'champions'` was caused by the summary rows. `champions_play` reveals that out DataFrame contains information on the teams playing in 3,275 games. When we multiply 6,550 by 5 to account for the fact that there are 5 players, we get 32750, which is the same as the amount of rows we have in `no_summary`.
+
+Once we combine all of the champions a team played into a single value, we will now work on removing the repeating ban rows. We'll approach this like how we approached champions by defining a custom aggregation function and then using a groupby to combine everything together. 
+
+```py
+def combine_bans(series):
+    # Grabs first element of each group since all elements in the group are repeating
+    return series.iloc[0]
+```
+```py
+#Aggregates each game and the teams playing in that game into two rows representing each team, their bans, and who won. 
+
+bans_per_team = lol_2022.groupby(["league", "gameid", "teamname"])[["ban1", "ban2", "ban3", "ban4", "ban5", "result"]].agg(combine_bans)
+
+bans_per_team
+```
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>ban1</th>
+      <th>ban2</th>
+      <th>ban3</th>
+      <th>ban4</th>
+      <th>ban5</th>
+      <th>result</th>
+    </tr>
+    <tr>
+      <th>league</th>
+      <th>gameid</th>
+      <th>teamname</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="12" valign="top">CBLOL</th>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_2695708</th>
+      <th>FURIA</th>
+      <td>Lee Sin</td>
+      <td>Thresh</td>
+      <td>Twisted Fate</td>
+      <td>Kai'Sa</td>
+      <td>Caitlyn</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>LOUD</th>
+      <td>Gwen</td>
+      <td>Diana</td>
+      <td>Jinx</td>
+      <td>Vex</td>
+      <td>Tryndamere</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_2695774</th>
+      <th>Flamengo Esports</th>
+      <td>Nidalee</td>
+      <td>Corki</td>
+      <td>Diana</td>
+      <td>Lee Sin</td>
+      <td>Jayce</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>Netshoes Miners</th>
+      <td>Jinx</td>
+      <td>Twisted Fate</td>
+      <td>Caitlyn</td>
+      <td>Viktor</td>
+      <td>Syndra</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_2695807</th>
+      <th>INTZ</th>
+      <td>Corki</td>
+      <td>Jayce</td>
+      <td>Akali</td>
+      <td>Kennen</td>
+      <td>Jax</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>KaBuM! e-Sports</th>
+      <td>Ziggs</td>
+      <td>Renekton</td>
+      <td>Twisted Fate</td>
+      <td>Jhin</td>
+      <td>Ezreal</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_2695835</th>
+      <th>RED Canids</th>
+      <td>Thresh</td>
+      <td>Caitlyn</td>
+      <td>Jinx</td>
+      <td>Braum</td>
+      <td>Karma</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Rensga eSports</th>
+      <td>Lee Sin</td>
+      <td>Leona</td>
+      <td>Twisted Fate</td>
+      <td>Nautilus</td>
+      <td>Rakan</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_2696159</th>
+      <th>Liberty</th>
+      <td>Twisted Fate</td>
+      <td>Leona</td>
+      <td>Vex</td>
+      <td>LeBlanc</td>
+      <td>Akali</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>Rensga eSports</th>
+      <td>Gwen</td>
+      <td>Corki</td>
+      <td>Thresh</td>
+      <td>Camille</td>
+      <td>Renekton</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_2696199</th>
+      <th>LOUD</th>
+      <td>Gwen</td>
+      <td>Lee Sin</td>
+      <td>Diana</td>
+      <td>Camille</td>
+      <td>Jarvan IV</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>RED Canids</th>
+      <td>Thresh</td>
+      <td>Viktor</td>
+      <td>Corki</td>
+      <td>Zoe</td>
+      <td>Jax</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
 
 
+We will now merge our `champions_played` DataFrame with our `bans_per_team` DataFrame to create one big DataFrame called `bans_and_champions` that contains the information we have so far.
 
-
-
-|                                                        | champion                                               |
-|:-------------------------------------------------------|:-------------------------------------------------------|
-| ('CBLOL', 'ESPORTSTMNT01_2695708', 'FURIA')            | ['Akali', 'Xin Zhao', 'Orianna', 'Jhin', 'Leona']      |
-| ('CBLOL', 'ESPORTSTMNT01_2695708', 'LOUD')             | ['Renekton', 'Viego', 'Corki', 'Aphelios', 'Nautilus'] |
-| ('CBLOL', 'ESPORTSTMNT01_2695774', 'Flamengo Esports') | ['Gwen', 'Xin Zhao', 'Orianna', 'Jhin', 'Maokai']      |
-| ('CBLOL', 'ESPORTSTMNT01_2695774', 'Netshoes Miners')  | ['Tryndamere', 'Viego', 'Vex', "Kai'Sa", 'Leona']      |
-| ('CBLOL', 'ESPORTSTMNT01_2695807', 'INTZ')             | ['Gwen', 'Xin Zhao', 'LeBlanc', 'Sivir', 'Karma']      |
-| ('CBLOL', 'ESPORTSTMNT01_2695807', 'KaBuM! e-Sports')  | ['Graves', 'Lee Sin', 'Viktor', 'Caitlyn', 'Nautilus'] |
-| ('CBLOL', 'ESPORTSTMNT01_2695835', 'RED Canids')       | ['Gwen', 'Xin Zhao', 'Akali', 'Samira', 'Rell']        |
-| ('CBLOL', 'ESPORTSTMNT01_2695835', 'Rensga eSports')   | ['Gragas', 'Viego', 'Corki', 'Ezreal', 'Yuumi']        |
-| ('CBLOL', 'ESPORTSTMNT01_2696159', 'Liberty')          | ['Graves', 'Jarvan IV', 'Zoe', 'Caitlyn', 'Lux']       |
-| ('CBLOL', 'ESPORTSTMNT01_2696159', 'Rensga eSports')   | ['Jayce', 'Viego', 'Viktor', 'Jhin', 'Karma']          |
-
-
+```py
+bans_and_champions = bans_per_team.merge(champions_played, left_index = True, right_index = True, how = "inner")
+bans_and_champions
+```
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th></th>
+      <th></th>
+      <th>ban1</th>
+      <th>ban2</th>
+      <th>ban3</th>
+      <th>ban4</th>
+      <th>ban5</th>
+      <th>result</th>
+      <th>champion</th>
+    </tr>
+    <tr>
+      <th>league</th>
+      <th>gameid</th>
+      <th>teamname</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="10" valign="top">CBLOL</th>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_2695708</th>
+      <th>FURIA</th>
+      <td>Lee Sin</td>
+      <td>Thresh</td>
+      <td>Twisted Fate</td>
+      <td>Kai'Sa</td>
+      <td>Caitlyn</td>
+      <td>0</td>
+      <td>[Akali, Xin Zhao, Orianna, Jhin, Leona]</td>
+    </tr>
+    <tr>
+      <th>LOUD</th>
+      <td>Gwen</td>
+      <td>Diana</td>
+      <td>Jinx</td>
+      <td>Vex</td>
+      <td>Tryndamere</td>
+      <td>1</td>
+      <td>[Renekton, Viego, Corki, Aphelios, Nautilus]</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_2695774</th>
+      <th>Flamengo Esports</th>
+      <td>Nidalee</td>
+      <td>Corki</td>
+      <td>Diana</td>
+      <td>Lee Sin</td>
+      <td>Jayce</td>
+      <td>0</td>
+      <td>[Gwen, Xin Zhao, Orianna, Jhin, Maokai]</td>
+    </tr>
+    <tr>
+      <th>Netshoes Miners</th>
+      <td>Jinx</td>
+      <td>Twisted Fate</td>
+      <td>Caitlyn</td>
+      <td>Viktor</td>
+      <td>Syndra</td>
+      <td>1</td>
+      <td>[Tryndamere, Viego, Vex, Kai'Sa, Leona]</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_2695807</th>
+      <th>INTZ</th>
+      <td>Corki</td>
+      <td>Jayce</td>
+      <td>Akali</td>
+      <td>Kennen</td>
+      <td>Jax</td>
+      <td>0</td>
+      <td>[Gwen, Xin Zhao, LeBlanc, Sivir, Karma]</td>
+    </tr>
+    <tr>
+      <th>KaBuM! e-Sports</th>
+      <td>Ziggs</td>
+      <td>Renekton</td>
+      <td>Twisted Fate</td>
+      <td>Jhin</td>
+      <td>Ezreal</td>
+      <td>1</td>
+      <td>[Graves, Lee Sin, Viktor, Caitlyn, Nautilus]</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_2695835</th>
+      <th>RED Canids</th>
+      <td>Thresh</td>
+      <td>Caitlyn</td>
+      <td>Jinx</td>
+      <td>Braum</td>
+      <td>Karma</td>
+      <td>1</td>
+      <td>[Gwen, Xin Zhao, Akali, Samira, Rell]</td>
+    </tr>
+    <tr>
+      <th>Rensga eSports</th>
+      <td>Lee Sin</td>
+      <td>Leona</td>
+      <td>Twisted Fate</td>
+      <td>Nautilus</td>
+      <td>Rakan</td>
+      <td>0</td>
+      <td>[Gragas, Viego, Corki, Ezreal, Yuumi]</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_2696159</th>
+      <th>Liberty</th>
+      <td>Twisted Fate</td>
+      <td>Leona</td>
+      <td>Vex</td>
+      <td>LeBlanc</td>
+      <td>Akali</td>
+      <td>1</td>
+      <td>[Graves, Jarvan IV, Zoe, Caitlyn, Lux]</td>
+    </tr>
+    <tr>
+      <th>Rensga eSports</th>
+      <td>Gwen</td>
+      <td>Corki</td>
+      <td>Thresh</td>
+      <td>Camille</td>
+      <td>Renekton</td>
+      <td>0</td>
+      <td>[Jayce, Viego, Viktor, Jhin, Karma]</td>
+    </tr>
+  </tbody>
+</table>
 
 
 
