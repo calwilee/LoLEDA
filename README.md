@@ -48,6 +48,49 @@ lol_2022 = lol_2022[[ "league", "gameid", "teamname", "ban1", "ban2", "ban3", "b
 lol_2022
 ```
 
+| league   | gameid                | teamname                      | ban1    | ...   | ban5   | champion   |   result |
+|:---------|:----------------------|:------------------------------|:--------|:------|:-------|:-----------|---------:|
+| LCKC     | ESPORTSTMNT01_2690210 | Fredit BRION Challengers      | Karma   | ...   | Lulu   | Renekton   |        0 |
+| LCKC     | ESPORTSTMNT01_2690210 | Fredit BRION Challengers      | Karma   | ...   | Lulu   | Xin Zhao   |        0 |
+| LCKC     | ESPORTSTMNT01_2690210 | Fredit BRION Challengers      | Karma   | ...   | Lulu   | LeBlanc    |        0 |
+| LCKC     | ESPORTSTMNT01_2690210 | Fredit BRION Challengers      | Karma   | ...   | Lulu   | Samira     |        0 |
+| LCKC     | ESPORTSTMNT01_2690210 | Fredit BRION Challengers      | Karma   | ...   | Lulu   | Leona      |        0 |
+| LCKC     | ESPORTSTMNT01_2690210 | Nongshim RedForce Challengers | Lee Sin | ...   | Rell   | Gragas     |        1 |
+| LCKC     | ESPORTSTMNT01_2690210 | Nongshim RedForce Challengers | Lee Sin | ...   | Rell   | Viego      |        1 |
+| LCKC     | ESPORTSTMNT01_2690210 | Nongshim RedForce Challengers | Lee Sin | ...   | Rell   | Viktor     |        1 |
+| LCKC     | ESPORTSTMNT01_2690210 | Nongshim RedForce Challengers | Lee Sin | ...   | Rell   | Jinx       |        1 |
+| LCKC     | ESPORTSTMNT01_2690210 | Nongshim RedForce Challengers | Lee Sin | ...   | Rell   | Alistar    |        1 |
+| LCKC     | ESPORTSTMNT01_2690210 | Fredit BRION Challengers      | Karma   | ...   | Lulu   | nan        |        0 |
+| LCKC     | ESPORTSTMNT01_2690210 | Nongshim RedForce Challengers | Lee Sin | ...   | Rell   | nan        |        1 |
+
+
+## Cleaning and EDA
+![cute poros :D](/images/trsnsiont2.webp)
+Before we can start answering the question, we need to clean the data and extract any information that might be useful to us.
+### Data Cleaning
+
+For this analysis, we are going to be focusing on tier-one leagues, Worlds, and MSI. Tier-one leagues consists of the best players and teams playing in tournaments in their region. For example, LCS is the tier-one competition in the US and LPL is the one for China. Worlds is the big tournament that takes place sometimes during October to November where the best teams globally compete against each other for the world. MSI is the is the Mid-Spring Invitational where multiple teams, usually teams from tier-one leagues, around the world complete against one another similar to worlds. 
+
+We chose to focus on these leagues in particular since the players that make up the teams in each of these tournaments are considered the best of the best and are mostly likely to have the highest game knowledge. Due to the professional coaching staff and resources these teams have, they are likely to be on par with one another with little variation in comparison to a tier-one league team vs a low-level team.
+```py
+"""
+Finds the rows associated with tier-one leagues, Worlds, or MSI using the `.loc` method
+"""
+lol_2022 = lol_2022.loc[(lol_2022['league'] == 'LCK') |
+          (lol_2022['league'] == 'LPL') |
+          (lol_2022['league'] == 'LEC') |
+          (lol_2022['league'] == 'LCS') |
+          (lol_2022['league'] == 'PCS') |
+          (lol_2022['league'] == 'VCS') |
+          (lol_2022['league'] == 'LJL') |
+          (lol_2022['league'] == 'CBLOL') |
+          (lol_2022['league'] == 'LLA') |
+          (lol_2022['league'] == 'MSI') |
+          (lol_2022['league'] == 'WLDs')]
+
+lol_2022
+```
+
 | league   | gameid           | teamname           | ban1     | ...   | ban5    | champion   |   result |
 |:---------|:-----------------|:-------------------|:---------|:------|:--------|:-----------|---------:|
 | LPL      | 8401-8401_game_1 | Oh My God          | Renekton | ...   | Camille | Gwen       |        1 |
@@ -62,17 +105,6 @@ lol_2022
 | LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | ...   | Rumble  | Thresh     |        0 |
 | LPL      | 8401-8401_game_1 | Oh My God          | Renekton | ...   | Camille | nan        |        1 |
 | LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | ...   | Rumble  | nan        |        0 |
-
-
-## Cleaning and EDA
-![cute poros :D](/images/trsnsiont2.webp)
-Before we can start answering the question, we need to clean the data and extract any information that might be useful to us.
-
-For this analysis, we are going to be focusing on tier-one leagues, Worlds, and MSI. Tier-one leagues consists of the best players and teams playing in tournaments in their region. For example, LCS is the tier-one competition in the US and LPL is the one for China. Worlds is the big tournament that takes place sometimes during October to November where the best teams globally compete against each other for the world. MSI is the is the Mid-Spring Invitational where multiple teams, usually teams from tier-one leagues, around the world complete against one another similar to worlds. 
-
-We chose to focus on these leagues in particular since the players that make up the teams in each of these tournaments are considered the best of the best and are mostly likely to have the highest game knowledge. Due to the professional coaching staff and resources these teams have, they are likely to be on par with one another with little variation in comparison to a tier-one league team vs a low-level team.
-
-
 
 
 
