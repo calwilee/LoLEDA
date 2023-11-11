@@ -62,6 +62,8 @@ lol_2022
 | LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | ...   | Rumble  | Thresh     |        0 |
 | LPL      | 8401-8401_game_1 | Oh My God          | Renekton | ...   | Camille | nan        |        1 |
 | LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | ...   | Rumble  | nan        |        0 |
+
+
 ## Cleaning and EDA
 ![cute poros :D](/images/trsnsiont2.webp)
 Before we can start answering the question, we need to clean the data and extract any information that might be useful to us.
