@@ -48,6 +48,7 @@ Upon looking at this list, we can see that not every columns will be useful to a
 lol_2022 = lol_2022[[ "league", "gameid", "teamname", "ban1", "ban2", "ban3", "ban4", "ban5", "champion", "result"]]
 lol_2022
 ```
+
 | league   | gameid           | teamname           | ban1     | ban2    | ban3    | ban4    | ban5    | champion   |   result |
 |:---------|:-----------------|:-------------------|:---------|:--------|:--------|:--------|:--------|:-----------|---------:|
 | LPL      | 8401-8401_game_1 | Oh My God          | Renekton | Lee Sin | Caitlyn | Jayce   | Camille | Gwen       |        1 |
