@@ -19,6 +19,12 @@ We'll start by loading in the data as `lol_2022`.
 ![dataframe with uncleaned league of legends data](/images/uncleaneddf.png)
 We can see that `lol_2022` contains 149400 rows that contain information about each player during a match and 123 columns that describes different attributes of the game. Let's take a look at what the columns of `lol_2022` are.
 
+## Cleaning and EDA
+`filepath = Path('data') / '2022lol.csv'
+lol_2022 = pd.read_csv(filepath)
+lol_2022`
+
+
 |   num_top_banned |        0 |        1 |        2 |          3 |          4 |
 |-----------------:|---------:|---------:|---------:|-----------:|-----------:|
 |                0 | 0.52459  | 0.552326 | 0.644444 |   0.588235 |   0.444444 |
