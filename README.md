@@ -1,3 +1,4 @@
+datatable: true 
 ![lolimg](/images/lolbanner.jpeg)
 ## Introduction
 League of Legends is a multiplayer online battle arena released in 2009 where two teams of five players select champions to fight against each other. Each player fulfills one of 5 roles (Top, Mid, ADC, Support, and Jungle) and has the objective of destroying the enemy team's Nexus. Since its release, League of Legends has become one of the most played games in the world, ranking 5th overall for the [most popular PC games by monthly active users](https://newzoo.com/resources/rankings/top-20-pc-games) according to NewZoo. The game has over [150,000,000 registered players](https://prioridata.com/data/league-of-legends/#:~:text=With%20over%20150%20million%20registered,games%20worldwide%20as%20of%202023.) globally, many of who are still active today with over [125,000,000 players](https://activeplayer.io/league-of-legends/) having played League of Legends within the last 30 days. 
@@ -388,9 +389,7 @@ bans_and_champions
       <th></th>
       <th></th>
       <th>ban1</th>
-      <th>ban2</th>
-      <th>ban3</th>
-      <th>ban4</th>
+      <th>...</th>
       <th>ban5</th>
       <th>result</th>
       <th>champion</th>
@@ -411,12 +410,10 @@ bans_and_champions
   <tbody>
     <tr>
       <th rowspan="10" valign="top">CBLOL</th>
-      <th rowspan="2" valign="top">ESPORTSTMNT01_2695708</th>
+      <th rowspan="2" valign="top">ESP...</th>
       <th>FURIA</th>
       <td>Lee Sin</td>
-      <td>Thresh</td>
-      <td>Twisted Fate</td>
-      <td>Kai'Sa</td>
+      <td>...</td>
       <td>Caitlyn</td>
       <td>0</td>
       <td>[Akali, Xin Zhao, Orianna, Jhin, Leona]</td>
@@ -424,20 +421,16 @@ bans_and_champions
     <tr>
       <th>LOUD</th>
       <td>Gwen</td>
-      <td>Diana</td>
-      <td>Jinx</td>
-      <td>Vex</td>
+      <td>...</td>
       <td>Tryndamere</td>
       <td>1</td>
       <td>[Renekton, Viego, Corki, Aphelios, Nautilus]</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">ESPORTSTMNT01_2695774</th>
+      <th rowspan="2" valign="top">ESP...</th>
       <th>Flamengo Esports</th>
       <td>Nidalee</td>
-      <td>Corki</td>
-      <td>Diana</td>
-      <td>Lee Sin</td>
+      <td>...</td>
       <td>Jayce</td>
       <td>0</td>
       <td>[Gwen, Xin Zhao, Orianna, Jhin, Maokai]</td>
@@ -445,20 +438,16 @@ bans_and_champions
     <tr>
       <th>Netshoes Miners</th>
       <td>Jinx</td>
-      <td>Twisted Fate</td>
-      <td>Caitlyn</td>
-      <td>Viktor</td>
+      <td>...</td>
       <td>Syndra</td>
       <td>1</td>
       <td>[Tryndamere, Viego, Vex, Kai'Sa, Leona]</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">ESPORTSTMNT01_2695807</th>
+      <th rowspan="2" valign="top">ESP...</th>
       <th>INTZ</th>
       <td>Corki</td>
-      <td>Jayce</td>
-      <td>Akali</td>
-      <td>Kennen</td>
+      <td>...</td>
       <td>Jax</td>
       <td>0</td>
       <td>[Gwen, Xin Zhao, LeBlanc, Sivir, Karma]</td>
@@ -466,20 +455,16 @@ bans_and_champions
     <tr>
       <th>KaBuM! e-Sports</th>
       <td>Ziggs</td>
-      <td>Renekton</td>
-      <td>Twisted Fate</td>
-      <td>Jhin</td>
+      <td>...</td>
       <td>Ezreal</td>
       <td>1</td>
       <td>[Graves, Lee Sin, Viktor, Caitlyn, Nautilus]</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">ESPORTSTMNT01_2695835</th>
+      <th rowspan="2" valign="top">ESP...</th>
       <th>RED Canids</th>
       <td>Thresh</td>
-      <td>Caitlyn</td>
-      <td>Jinx</td>
-      <td>Braum</td>
+      <td>...</td>
       <td>Karma</td>
       <td>1</td>
       <td>[Gwen, Xin Zhao, Akali, Samira, Rell]</td>
@@ -487,20 +472,16 @@ bans_and_champions
     <tr>
       <th>Rensga eSports</th>
       <td>Lee Sin</td>
-      <td>Leona</td>
-      <td>Twisted Fate</td>
-      <td>Nautilus</td>
+      <td>...</td>
       <td>Rakan</td>
       <td>0</td>
       <td>[Gragas, Viego, Corki, Ezreal, Yuumi]</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">ESPORTSTMNT01_2696159</th>
+      <th rowspan="2" valign="top">ESP...</th>
       <th>Liberty</th>
       <td>Twisted Fate</td>
-      <td>Leona</td>
-      <td>Vex</td>
-      <td>LeBlanc</td>
+      <td>...</td>
       <td>Akali</td>
       <td>1</td>
       <td>[Graves, Jarvan IV, Zoe, Caitlyn, Lux]</td>
@@ -508,9 +489,7 @@ bans_and_champions
     <tr>
       <th>Rensga eSports</th>
       <td>Gwen</td>
-      <td>Corki</td>
-      <td>Thresh</td>
-      <td>Camille</td>
+      <td>...</td>
       <td>Renekton</td>
       <td>0</td>
       <td>[Jayce, Viego, Viktor, Jhin, Karma]</td>
