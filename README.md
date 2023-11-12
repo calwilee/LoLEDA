@@ -49,6 +49,8 @@ lol_2022 = lol_2022[[ "league", "gameid", "teamname", "ban1", "ban2", "ban3", "b
 lol_2022
 ```
 
+<div class="table-wrapper" markdown="block">
+
 | league   | gameid                | teamname                      | ban1    | ...   | ban5   | champion   |   result |
 |:---------|:----------------------|:------------------------------|:--------|:------|:-------|:-----------|---------:|
 | LCKC     | ESPORTSTMNT01_2690210 | Fredit BRION Challengers      | Karma   | ...   | Lulu   | Renekton   |        0 |
@@ -133,6 +135,9 @@ no_summary
 | LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | ...   | Rumble  | Vex        |        0 |
 | LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | ...   | Rumble  | Aphelios   |        0 |
 | LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | ...   | Rumble  | Thresh     |        0 |
+
+</div>
+
 
 
 Next we'll define an custom aggregation function to combine the 5 champions each team played into a single value by putting them into a list. 
