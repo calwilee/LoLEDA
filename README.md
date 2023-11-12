@@ -21,7 +21,6 @@ We'll start by loading in the data as `lol_2022`.
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
       <th>gameid</th>
       <th>datacompleteness</th>
       <th>url</th>
@@ -149,7 +148,6 @@ We'll start by loading in the data as `lol_2022`.
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
       <td>ESPORTSTMNT01_2690210</td>
       <td>complete</td>
       <td>NaN</td>
@@ -275,7 +273,6 @@ We'll start by loading in the data as `lol_2022`.
       <td>0.0</td>
     </tr>
     <tr>
-      <th>1</th>
       <td>ESPORTSTMNT01_2690210</td>
       <td>complete</td>
       <td>NaN</td>
@@ -401,7 +398,6 @@ We'll start by loading in the data as `lol_2022`.
       <td>1.0</td>
     </tr>
     <tr>
-      <th>2</th>
       <td>ESPORTSTMNT01_2690210</td>
       <td>complete</td>
       <td>NaN</td>
@@ -527,7 +523,6 @@ We'll start by loading in the data as `lol_2022`.
       <td>2.0</td>
     </tr>
     <tr>
-      <th>3</th>
       <td>ESPORTSTMNT01_2690210</td>
       <td>complete</td>
       <td>NaN</td>
@@ -653,7 +648,6 @@ We'll start by loading in the data as `lol_2022`.
       <td>0.0</td>
     </tr>
     <tr>
-      <th>4</th>
       <td>ESPORTSTMNT01_2690210</td>
       <td>complete</td>
       <td>NaN</td>
@@ -779,7 +773,6 @@ We'll start by loading in the data as `lol_2022`.
       <td>2.0</td>
     </tr>
     <tr>
-      <th>5</th>
       <td>ESPORTSTMNT01_2690210</td>
       <td>complete</td>
       <td>NaN</td>
@@ -905,7 +898,6 @@ We'll start by loading in the data as `lol_2022`.
       <td>0.0</td>
     </tr>
     <tr>
-      <th>6</th>
       <td>ESPORTSTMNT01_2690210</td>
       <td>complete</td>
       <td>NaN</td>
@@ -1031,7 +1023,6 @@ We'll start by loading in the data as `lol_2022`.
       <td>2.0</td>
     </tr>
     <tr>
-      <th>7</th>
       <td>ESPORTSTMNT01_2690210</td>
       <td>complete</td>
       <td>NaN</td>
@@ -1157,7 +1148,6 @@ We'll start by loading in the data as `lol_2022`.
       <td>0.0</td>
     </tr>
     <tr>
-      <th>8</th>
       <td>ESPORTSTMNT01_2690210</td>
       <td>complete</td>
       <td>NaN</td>
@@ -1283,7 +1273,6 @@ We'll start by loading in the data as `lol_2022`.
       <td>2.0</td>
     </tr>
     <tr>
-      <th>9</th>
       <td>ESPORTSTMNT01_2690210</td>
       <td>complete</td>
       <td>NaN</td>
@@ -1409,7 +1398,6 @@ We'll start by loading in the data as `lol_2022`.
       <td>2.0</td>
     </tr>
     <tr>
-      <th>10</th>
       <td>ESPORTSTMNT01_2690210</td>
       <td>complete</td>
       <td>NaN</td>
@@ -1535,7 +1523,6 @@ We'll start by loading in the data as `lol_2022`.
       <td>5.0</td>
     </tr>
     <tr>
-      <th>11</th>
       <td>ESPORTSTMNT01_2690210</td>
       <td>complete</td>
       <td>NaN</td>
