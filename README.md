@@ -1,4 +1,3 @@
-datatable: true 
 ![lolimg](/images/lolbanner.jpeg)
 ## Introduction
 League of Legends is a multiplayer online battle arena released in 2009 where two teams of five players select champions to fight against each other. Each player fulfills one of 5 roles (Top, Mid, ADC, Support, and Jungle) and has the objective of destroying the enemy team's Nexus. Since its release, League of Legends has become one of the most played games in the world, ranking 5th overall for the [most popular PC games by monthly active users](https://newzoo.com/resources/rankings/top-20-pc-games) according to NewZoo. The game has over [150,000,000 registered players](https://prioridata.com/data/league-of-legends/#:~:text=With%20over%20150%20million%20registered,games%20worldwide%20as%20of%202023.) globally, many of who are still active today with over [125,000,000 players](https://activeplayer.io/league-of-legends/) having played League of Legends within the last 30 days. 
@@ -1684,7 +1683,6 @@ lol_2022
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
       <th>league</th>
       <th>gameid</th>
       <th>teamname</th>
@@ -1699,7 +1697,6 @@ lol_2022
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
       <td>LCKC</td>
       <td>ESPORTSTMNT01_2690210</td>
       <td>Fredit BRION Challengers</td>
@@ -1712,7 +1709,6 @@ lol_2022
       <td>0</td>
     </tr>
     <tr>
-      <th>1</th>
       <td>LCKC</td>
       <td>ESPORTSTMNT01_2690210</td>
       <td>Fredit BRION Challengers</td>
@@ -1725,7 +1721,6 @@ lol_2022
       <td>0</td>
     </tr>
     <tr>
-      <th>2</th>
       <td>LCKC</td>
       <td>ESPORTSTMNT01_2690210</td>
       <td>Fredit BRION Challengers</td>
@@ -1738,7 +1733,6 @@ lol_2022
       <td>0</td>
     </tr>
     <tr>
-      <th>3</th>
       <td>LCKC</td>
       <td>ESPORTSTMNT01_2690210</td>
       <td>Fredit BRION Challengers</td>
@@ -1751,7 +1745,6 @@ lol_2022
       <td>0</td>
     </tr>
     <tr>
-      <th>4</th>
       <td>LCKC</td>
       <td>ESPORTSTMNT01_2690210</td>
       <td>Fredit BRION Challengers</td>
@@ -1764,7 +1757,6 @@ lol_2022
       <td>0</td>
     </tr>
     <tr>
-      <th>5</th>
       <td>LCKC</td>
       <td>ESPORTSTMNT01_2690210</td>
       <td>Nongshim RedForce Challengers</td>
@@ -1777,7 +1769,6 @@ lol_2022
       <td>1</td>
     </tr>
     <tr>
-      <th>6</th>
       <td>LCKC</td>
       <td>ESPORTSTMNT01_2690210</td>
       <td>Nongshim RedForce Challengers</td>
@@ -1790,7 +1781,6 @@ lol_2022
       <td>1</td>
     </tr>
     <tr>
-      <th>7</th>
       <td>LCKC</td>
       <td>ESPORTSTMNT01_2690210</td>
       <td>Nongshim RedForce Challengers</td>
@@ -1803,7 +1793,6 @@ lol_2022
       <td>1</td>
     </tr>
     <tr>
-      <th>8</th>
       <td>LCKC</td>
       <td>ESPORTSTMNT01_2690210</td>
       <td>Nongshim RedForce Challengers</td>
@@ -1816,7 +1805,6 @@ lol_2022
       <td>1</td>
     </tr>
     <tr>
-      <th>9</th>
       <td>LCKC</td>
       <td>ESPORTSTMNT01_2690210</td>
       <td>Nongshim RedForce Challengers</td>
@@ -1829,7 +1817,6 @@ lol_2022
       <td>1</td>
     </tr>
     <tr>
-      <th>10</th>
       <td>LCKC</td>
       <td>ESPORTSTMNT01_2690210</td>
       <td>Fredit BRION Challengers</td>
@@ -1842,7 +1829,6 @@ lol_2022
       <td>0</td>
     </tr>
     <tr>
-      <th>11</th>
       <td>LCKC</td>
       <td>ESPORTSTMNT01_2690210</td>
       <td>Nongshim RedForce Challengers</td>
@@ -1856,7 +1842,6 @@ lol_2022
     </tr>
   </tbody>
 </table>
-
 
 ## Cleaning and EDA
 ![cute poros :D](/images/trsnsiont2.webp)
@@ -1888,7 +1873,6 @@ lol_2022
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
       <th>league</th>
       <th>gameid</th>
       <th>teamname</th>
@@ -1903,7 +1887,6 @@ lol_2022
   </thead>
   <tbody>
     <tr>
-      <th>24</th>
       <td>LPL</td>
       <td>8401-8401_game_1</td>
       <td>Oh My God</td>
@@ -1916,7 +1899,6 @@ lol_2022
       <td>1</td>
     </tr>
     <tr>
-      <th>25</th>
       <td>LPL</td>
       <td>8401-8401_game_1</td>
       <td>Oh My God</td>
@@ -1929,7 +1911,6 @@ lol_2022
       <td>1</td>
     </tr>
     <tr>
-      <th>26</th>
       <td>LPL</td>
       <td>8401-8401_game_1</td>
       <td>Oh My God</td>
@@ -1942,7 +1923,6 @@ lol_2022
       <td>1</td>
     </tr>
     <tr>
-      <th>27</th>
       <td>LPL</td>
       <td>8401-8401_game_1</td>
       <td>Oh My God</td>
@@ -1955,7 +1935,6 @@ lol_2022
       <td>1</td>
     </tr>
     <tr>
-      <th>28</th>
       <td>LPL</td>
       <td>8401-8401_game_1</td>
       <td>Oh My God</td>
@@ -1968,7 +1947,6 @@ lol_2022
       <td>1</td>
     </tr>
     <tr>
-      <th>29</th>
       <td>LPL</td>
       <td>8401-8401_game_1</td>
       <td>ThunderTalk Gaming</td>
@@ -1981,7 +1959,6 @@ lol_2022
       <td>0</td>
     </tr>
     <tr>
-      <th>30</th>
       <td>LPL</td>
       <td>8401-8401_game_1</td>
       <td>ThunderTalk Gaming</td>
@@ -1994,7 +1971,6 @@ lol_2022
       <td>0</td>
     </tr>
     <tr>
-      <th>31</th>
       <td>LPL</td>
       <td>8401-8401_game_1</td>
       <td>ThunderTalk Gaming</td>
@@ -2007,7 +1983,6 @@ lol_2022
       <td>0</td>
     </tr>
     <tr>
-      <th>32</th>
       <td>LPL</td>
       <td>8401-8401_game_1</td>
       <td>ThunderTalk Gaming</td>
@@ -2020,7 +1995,6 @@ lol_2022
       <td>0</td>
     </tr>
     <tr>
-      <th>33</th>
       <td>LPL</td>
       <td>8401-8401_game_1</td>
       <td>ThunderTalk Gaming</td>
@@ -2033,7 +2007,6 @@ lol_2022
       <td>0</td>
     </tr>
     <tr>
-      <th>34</th>
       <td>LPL</td>
       <td>8401-8401_game_1</td>
       <td>Oh My God</td>
@@ -2046,7 +2019,6 @@ lol_2022
       <td>1</td>
     </tr>
     <tr>
-      <th>35</th>
       <td>LPL</td>
       <td>8401-8401_game_1</td>
       <td>ThunderTalk Gaming</td>
@@ -2078,7 +2050,6 @@ no_summary
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
       <th>league</th>
       <th>gameid</th>
       <th>teamname</th>
@@ -2093,7 +2064,6 @@ no_summary
   </thead>
   <tbody>
     <tr>
-      <th>24</th>
       <td>LPL</td>
       <td>8401-8401_game_1</td>
       <td>Oh My God</td>
@@ -2106,7 +2076,6 @@ no_summary
       <td>1</td>
     </tr>
     <tr>
-      <th>25</th>
       <td>LPL</td>
       <td>8401-8401_game_1</td>
       <td>Oh My God</td>
@@ -2119,7 +2088,6 @@ no_summary
       <td>1</td>
     </tr>
     <tr>
-      <th>26</th>
       <td>LPL</td>
       <td>8401-8401_game_1</td>
       <td>Oh My God</td>
@@ -2132,7 +2100,6 @@ no_summary
       <td>1</td>
     </tr>
     <tr>
-      <th>27</th>
       <td>LPL</td>
       <td>8401-8401_game_1</td>
       <td>Oh My God</td>
@@ -2145,7 +2112,6 @@ no_summary
       <td>1</td>
     </tr>
     <tr>
-      <th>28</th>
       <td>LPL</td>
       <td>8401-8401_game_1</td>
       <td>Oh My God</td>
@@ -2158,7 +2124,6 @@ no_summary
       <td>1</td>
     </tr>
     <tr>
-      <th>29</th>
       <td>LPL</td>
       <td>8401-8401_game_1</td>
       <td>ThunderTalk Gaming</td>
@@ -2171,7 +2136,6 @@ no_summary
       <td>0</td>
     </tr>
     <tr>
-      <th>30</th>
       <td>LPL</td>
       <td>8401-8401_game_1</td>
       <td>ThunderTalk Gaming</td>
@@ -2184,7 +2148,6 @@ no_summary
       <td>0</td>
     </tr>
     <tr>
-      <th>31</th>
       <td>LPL</td>
       <td>8401-8401_game_1</td>
       <td>ThunderTalk Gaming</td>
@@ -2197,7 +2160,6 @@ no_summary
       <td>0</td>
     </tr>
     <tr>
-      <th>32</th>
       <td>LPL</td>
       <td>8401-8401_game_1</td>
       <td>ThunderTalk Gaming</td>
@@ -2210,7 +2172,6 @@ no_summary
       <td>0</td>
     </tr>
     <tr>
-      <th>33</th>
       <td>LPL</td>
       <td>8401-8401_game_1</td>
       <td>ThunderTalk Gaming</td>
@@ -2224,7 +2185,6 @@ no_summary
     </tr>
   </tbody>
 </table>
-
 
 
 Next we'll define an custom aggregation function to combine the 5 champions each team played into a single value by putting them into a list. 
