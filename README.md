@@ -495,6 +495,28 @@ bans_and_champions
   </tbody>
 </table>
 
+Now we have all the necessary information to move on to the first step of answering our question, determining who are the most banned champions in our dataset. First, we need to determine which champions were banned and the amount of times they were.
+
+```py
+ban_amount = bans_and_champions[["ban1", "ban2", "ban3", "ban4", "ban5"]].stack().value_counts()
+
+ban_amount
+```
+1.Zeri            1608
+2.Gwen            1097
+3.Kalista         1074
+4.Ahri             984
+5.LeBlanc          906
+6.Lucian           885
+7.Twisted Fate     798
+8.Sylas            790
+9.Caitlyn          776
+10.Lee Sin          748
+
+We can see from `bans` that a total of 144 champions were banned in `bans_and_champions` and that certain champions were banned way more than others. In order to get a better idea of the distribution of bans, we will use a bar chart to graph the number of times a champion was banned.
+
+<iframe src="assets/Number_of_bans_per_champ.html" width=800 height=600 frameBorder=0></iframe>
+
 
 
 
