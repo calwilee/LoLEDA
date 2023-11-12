@@ -17,6 +17,11 @@ For this project, we are going to look at Oracle's Elixer's League of Legends Co
 
 We'll start by loading in the data as `lol_2022`.
 
+```py
+filepath = Path('data') / '2022lol.csv' 
+lol_2022 = pd.read_csv(filepath)
+lol_2022
+```
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
@@ -1649,14 +1654,7 @@ We'll start by loading in the data as `lol_2022`.
   </tbody>
 </table>
 
-We can see that `lol_2022` contains 149400 rows that contain information about each player during a match and 123 columns that describes different attributes of the game. Let's take a look at what the columns of `lol_2022` are.
-
-```py
-filepath = Path('data') / '2022lol.csv' 
-lol_2022 = pd.read_csv(filepath)
-lol_2022
-```
-We can see that `lol_2022` contains 149400 rows that has information about each player during a game and 123 columns that describes different attributes of the game. Let's look at what the columns of `lol_2022` are.
+`lol_2022` contains 149400 rows that has information about each player during a game and 123 columns that describes different attributes of the game. Let's look at what the columns of `lol_2022` are.
 ```py
 print(lol_2022.columns.tolist())
 ['gameid', 'datacompleteness', 'url', 'league', 'year', 'split', 'playoffs', 'date', 'game', 'patch', 'participantid', 'side', 'position', 'playername', 'playerid', 'teamname', 'teamid', 'champion', 'ban1', 'ban2', 'ban3', 'ban4', 'ban5', 'gamelength', 'result', 'kills', 'deaths', 'assists', 'teamkills', 'teamdeaths', 'doublekills', 'triplekills', 'quadrakills', 'pentakills', 'firstblood', 'firstbloodkill', 'firstbloodassist', 'firstbloodvictim', 'team kpm', 'ckpm', 'firstdragon', 'dragons', 'opp_dragons', 'elementaldrakes', 'opp_elementaldrakes', 'infernals', 'mountains', 'clouds', 'oceans', 'chemtechs', 'hextechs', 'dragons (type unknown)', 'elders', 'opp_elders', 'firstherald', 'heralds', 'opp_heralds', 'firstbaron', 'barons', 'opp_barons', 'firsttower', 'towers', 'opp_towers', 'firstmidtower', 'firsttothreetowers', 'turretplates', 'opp_turretplates', 'inhibitors', 'opp_inhibitors', 'damagetochampions', 'dpm', 'damageshare', 'damagetakenperminute', 'damagemitigatedperminute', 'wardsplaced', 'wpm', 'wardskilled', 'wcpm', 'controlwardsbought', 'visionscore', 'vspm', 'totalgold', 'earnedgold', 'earned gpm', 'earnedgoldshare', 'goldspent', 'gspd', 'total cs', 'minionkills', 'monsterkills', 'monsterkillsownjungle', 'monsterkillsenemyjungle', 'cspm', 'goldat10', 'xpat10', 'csat10', 'opp_goldat10', 'opp_xpat10', 'opp_csat10', 'golddiffat10', 'xpdiffat10', 'csdiffat10', 'killsat10', 'assistsat10', 'deathsat10', 'opp_killsat10', 'opp_assistsat10', 'opp_deathsat10', 'goldat15', 'xpat15', 'csat15', 'opp_goldat15', 'opp_xpat15', 'opp_csat15', 'golddiffat15', 'xpdiffat15', 'csdiffat15', 'killsat15', 'assistsat15', 'deathsat15', 'opp_killsat15', 'opp_assistsat15', 'opp_deathsat15']
@@ -2267,7 +2265,6 @@ champions_played
   </tbody>
 </table>
 
-</div>
 
 An additional thing to note is that this DataFrame confirms that the previous missing values in `'champions'` was caused by the summary rows. `champions_play` reveals that out DataFrame contains information on the teams playing in 3,275 games. When we multiply 6,550 by 5 to account for the fact that there are 5 players, we get 32750, which is the same as the amount of rows we have in `no_summary`.
 
