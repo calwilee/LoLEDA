@@ -2597,6 +2597,24 @@ We can see from `bans` that a total of 144 champions were banned in `bans_and_ch
 
 </div>
 
+We can see that there is a huge pool of champions that were banned, to the point we can't even see all of the champion names on the x-axis. However, we can also notice that a good chunk of the distribution comes from a certain top percentage of the bans. There is a certain point where the next champion in the ban distribution won't contribute much. Now we must determine our cutoff point for the most banned.
+
+By looking at the graph, we can determine that there are drops in the graph. One possible reason behind these drops are that each of the drops are associated with the amount of bans they spend banning the most banned champions. It is more likely that a team may ban a few of the most powerful champions and then spend the rest of their bans banning champions that the other team may be good at. As the team starts banning more champions, they are more likely to start tailoring their bans to the opponent rather than the current game environment. 
+
+Taking this into consideration, we will looking into the first 5 drops to represent the 5 bans each team gets. The following graph shows what we consider the first 5 drops to be and a zoom in of those first 5 drops.
+
+<div class="table-wrapper" markdown="block">
+
+<iframe src="assets/withline.html" width=750 height=500 frameBorder=0></iframe>
+
+</div>
+
+<div class="table-wrapper" markdown="block">
+
+<iframe src="assets/first_five_drops.html" width=750 height=500 frameBorder=0></iframe>
+
+</div>
+
 
 
 
