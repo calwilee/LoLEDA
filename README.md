@@ -66,6 +66,8 @@ lol_2022
 | LCKC     | ESPORTSTMNT01_2690210 | Fredit BRION Challengers      | Karma   | ...   | Lulu   | nan        |        0 |
 | LCKC     | ESPORTSTMNT01_2690210 | Nongshim RedForce Challengers | Lee Sin | ...   | Rell   | nan        |        1 |
 
+</div>
+
 
 ## Cleaning and EDA
 ![cute poros :D](/images/trsnsiont2.webp)
@@ -135,8 +137,6 @@ no_summary
 | LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | ...   | Rumble  | Vex        |        0 |
 | LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | ...   | Rumble  | Aphelios   |        0 |
 | LPL      | 8401-8401_game_1 | ThunderTalk Gaming | Samira   | ...   | Rumble  | Thresh     |        0 |
-
-</div>
 
 
 
@@ -235,7 +235,6 @@ bans_per_team = lol_2022.groupby(["league", "gameid", "teamname"])[["ban1", "ban
 
 bans_per_team
 ```
-<div class="table-wrapper" markdown="block">
 
 <table border="1" class="dataframe">
   <thead>
@@ -380,8 +379,6 @@ bans_per_team
     </tr>
   </tbody>
 </table>
-
-</div>
 
 
 
