@@ -153,6 +153,7 @@ champions_played = no_summary.groupby(["league", "gameid", "teamname"])[["champi
 
 champions_played
 ```
+<div class="table-wrapper" markdown="block">
 
 <table border="1" class="dataframe">
   <thead>
@@ -218,6 +219,8 @@ champions_played
     </tr>
   </tbody>
 </table>
+
+</div>
 
 An additional thing to note is that this DataFrame confirms that the previous missing values in `'champions'` was caused by the summary rows. `champions_play` reveals that out DataFrame contains information on the teams playing in 3,275 games. When we multiply 6,550 by 5 to account for the fact that there are 5 players, we get 32750, which is the same as the amount of rows we have in `no_summary`.
 
