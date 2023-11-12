@@ -2198,7 +2198,6 @@ champions_played = no_summary.groupby(["league", "gameid", "teamname"])[["champi
 
 champions_played
 ```
-<div class="table-wrapper" markdown="block">
 
 <table border="1" class="dataframe">
   <thead>
@@ -2465,7 +2464,7 @@ bans_and_champions
   <tbody>
     <tr>
       <th rowspan="10" valign="top">CBLOL</th>
-      <th rowspan="2" valign="top">ESPORTSTMNT01_2695708</th>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_26...</th>
       <th>FURIA</th>
       <td>Lee Sin</td>
       <td>Thresh</td>
@@ -2486,7 +2485,7 @@ bans_and_champions
       <td>[Renekton, Viego, Corki, Aphelios, Nautilus]</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">ESPORTSTMNT01_2695774</th>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_26...</th>
       <th>Flamengo Esports</th>
       <td>Nidalee</td>
       <td>Corki</td>
@@ -2507,7 +2506,7 @@ bans_and_champions
       <td>[Tryndamere, Viego, Vex, Kai'Sa, Leona]</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">ESPORTSTMNT01_2695807</th>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_26...</th>
       <th>INTZ</th>
       <td>Corki</td>
       <td>Jayce</td>
@@ -2528,7 +2527,7 @@ bans_and_champions
       <td>[Graves, Lee Sin, Viktor, Caitlyn, Nautilus]</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">ESPORTSTMNT01_2695835</th>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_26...</th>
       <th>RED Canids</th>
       <td>Thresh</td>
       <td>Caitlyn</td>
@@ -2549,7 +2548,7 @@ bans_and_champions
       <td>[Gragas, Viego, Corki, Ezreal, Yuumi]</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">ESPORTSTMNT01_2696159</th>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_26...</th>
       <th>Liberty</th>
       <td>Twisted Fate</td>
       <td>Leona</td>
