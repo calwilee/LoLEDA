@@ -2445,7 +2445,9 @@ bans_and_champions
       <th></th>
       <th></th>
       <th>ban1</th>
-      <th>...</th>
+      <th>ban2</th>
+      <th>ban3</th>
+      <th>ban4</th>
       <th>ban5</th>
       <th>result</th>
       <th>champion</th>
@@ -2459,15 +2461,19 @@ bans_and_champions
       <th></th>
       <th></th>
       <th></th>
+      <th></th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th rowspan="10" valign="top">CBLOL</th>
-      <th rowspan="2" valign="top">ESP...</th>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_2695708</th>
       <th>FURIA</th>
       <td>Lee Sin</td>
-      <td>...</td>
+      <td>Thresh</td>
+      <td>Twisted Fate</td>
+      <td>Kai'Sa</td>
       <td>Caitlyn</td>
       <td>0</td>
       <td>[Akali, Xin Zhao, Orianna, Jhin, Leona]</td>
@@ -2475,16 +2481,20 @@ bans_and_champions
     <tr>
       <th>LOUD</th>
       <td>Gwen</td>
-      <td>...</td>
+      <td>Diana</td>
+      <td>Jinx</td>
+      <td>Vex</td>
       <td>Tryndamere</td>
       <td>1</td>
       <td>[Renekton, Viego, Corki, Aphelios, Nautilus]</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">ESP...</th>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_2695774</th>
       <th>Flamengo Esports</th>
       <td>Nidalee</td>
-      <td>...</td>
+      <td>Corki</td>
+      <td>Diana</td>
+      <td>Lee Sin</td>
       <td>Jayce</td>
       <td>0</td>
       <td>[Gwen, Xin Zhao, Orianna, Jhin, Maokai]</td>
@@ -2492,16 +2502,20 @@ bans_and_champions
     <tr>
       <th>Netshoes Miners</th>
       <td>Jinx</td>
-      <td>...</td>
+      <td>Twisted Fate</td>
+      <td>Caitlyn</td>
+      <td>Viktor</td>
       <td>Syndra</td>
       <td>1</td>
       <td>[Tryndamere, Viego, Vex, Kai'Sa, Leona]</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">ESP...</th>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_2695807</th>
       <th>INTZ</th>
       <td>Corki</td>
-      <td>...</td>
+      <td>Jayce</td>
+      <td>Akali</td>
+      <td>Kennen</td>
       <td>Jax</td>
       <td>0</td>
       <td>[Gwen, Xin Zhao, LeBlanc, Sivir, Karma]</td>
@@ -2509,16 +2523,20 @@ bans_and_champions
     <tr>
       <th>KaBuM! e-Sports</th>
       <td>Ziggs</td>
-      <td>...</td>
+      <td>Renekton</td>
+      <td>Twisted Fate</td>
+      <td>Jhin</td>
       <td>Ezreal</td>
       <td>1</td>
       <td>[Graves, Lee Sin, Viktor, Caitlyn, Nautilus]</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">ESP...</th>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_2695835</th>
       <th>RED Canids</th>
       <td>Thresh</td>
-      <td>...</td>
+      <td>Caitlyn</td>
+      <td>Jinx</td>
+      <td>Braum</td>
       <td>Karma</td>
       <td>1</td>
       <td>[Gwen, Xin Zhao, Akali, Samira, Rell]</td>
@@ -2526,16 +2544,20 @@ bans_and_champions
     <tr>
       <th>Rensga eSports</th>
       <td>Lee Sin</td>
-      <td>...</td>
+      <td>Leona</td>
+      <td>Twisted Fate</td>
+      <td>Nautilus</td>
       <td>Rakan</td>
       <td>0</td>
       <td>[Gragas, Viego, Corki, Ezreal, Yuumi]</td>
     </tr>
     <tr>
-      <th rowspan="2" valign="top">ESP...</th>
+      <th rowspan="2" valign="top">ESPORTSTMNT01_2696159</th>
       <th>Liberty</th>
       <td>Twisted Fate</td>
-      <td>...</td>
+      <td>Leona</td>
+      <td>Vex</td>
+      <td>LeBlanc</td>
       <td>Akali</td>
       <td>1</td>
       <td>[Graves, Jarvan IV, Zoe, Caitlyn, Lux]</td>
@@ -2543,7 +2565,9 @@ bans_and_champions
     <tr>
       <th>Rensga eSports</th>
       <td>Gwen</td>
-      <td>...</td>
+      <td>Corki</td>
+      <td>Thresh</td>
+      <td>Camille</td>
       <td>Renekton</td>
       <td>0</td>
       <td>[Jayce, Viego, Viktor, Jhin, Karma]</td>
