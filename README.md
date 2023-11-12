@@ -519,7 +519,7 @@ ban_amount
 
 We can see from `bans` that a total of 144 champions were banned in `bans_and_champions` and that certain champions were banned way more than others. In order to get a better idea of the distribution of bans, we will use a bar chart to graph the number of times a champion was banned.
 
-<iframe src="assets/Number_of_bans_per_champ.html" width=700 height=500 frameBorder=0></iframe>
+<iframe src="assets/Number_of_bans_per_champ.html" width=750 height=500 frameBorder=0></iframe>
 
 
 
