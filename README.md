@@ -2201,12 +2201,6 @@ champions_played
 
 <table border="1" class="dataframe">
   <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
     <tr>
       <th>league</th>
       <th>gameid</th>
