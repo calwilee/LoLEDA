@@ -2205,13 +2205,13 @@ champions_played
       <th></th>
       <th></th>
       <th></th>
-      <th>champion</th>
+      <th></th>
     </tr>
     <tr>
       <th>league</th>
       <th>gameid</th>
       <th>teamname</th>
-      <th></th>
+      <th>champion</th>
     </tr>
   </thead>
   <tbody>
@@ -2576,7 +2576,7 @@ Now we have all the necessary information to move on to the first step of answer
 ```py
 ban_amount = bans_and_champions[["ban1", "ban2", "ban3", "ban4", "ban5"]].stack().value_counts()
 
-ban_amount
+ban_amount[:10]
 ```
 1. Zeri            1608
 2. Gwen            1097
@@ -2615,7 +2615,16 @@ Taking this into consideration, we will looking into the first 5 drops to repres
 
 </div>
 
+We can see that from the graph that these champions are in the top 15 of `ban_amount`. Coincidentally, this is associated with the top 10% of `ban_amount`. Let's see the percentage of bans these champions make up.
 
+```py
+top_bans.sum() / ban_amount.sum()  = 0.39743119266055044
+```
+When we calculate the total amount of bans and the number of bans within the top 15, we can see that they make up almost 40% of the bans. 
+
+Therefore, we will set the `top_bans` to be the top 15 or 10% of `ban_amount`.
+
+Now that we've determined who makes up the most banned champions, we will now figure out how many of those champions teams banned per game and record that data into our DataFrame in a new column called `'num_top_banned'`. We'll accomplish this by defining a function that counts the number of times a team banned a champion in `top_bans` and then apply that to the DataFrame.
 
 
 
