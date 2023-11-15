@@ -1852,7 +1852,7 @@ def combine_champion(series):
 
 champions_played = no_summary.groupby(["league", "gameid", "teamname"])[["champion"]].agg(combine_champion)
 ```
-##### Removing repeated ban rows
+> Removing repeated ban rows
 Since bans are consistent throughout each match, our data repeats bans for each player. We get around this by grouping by `league`, `gameid`, and `teamname` and grabbing one of the series values. We save this dataframe as `bans_per_team`.
 
 ##### Merging 
