@@ -1835,16 +1835,20 @@ Before we can start answering the question, we need to clean the data and extrac
 ### Data Cleaning
 
 > Region Filtration 
+
 For this analysis, we are going to be focusing on tier-one leagues, Worlds, and MSI, since these leagues contain the best players and highest quality gameplay. We filter for these leagues in our dataframe rows
 
-> Dropping Summary Rows 
+> Dropping Summary Rows
+
 If we take a look at our dataframe, we notice it contains two summary rows for each match. We will need to drop these rows in order to combine values in `champion`.
 
 
 > Finding the Most Banned Champions
-In order to be able to answer our question, we must first find the top banned champions
+
+In order to be able to answer our question, we must first find the top banned champions. We Generate a series of the most banned champions by 
 
 > Game Agregation and Converting Played Champions to list
+
 We group our data by `league`, `gameid`, and `teamname` and utilizing a custom aggregation function, we combine the 5 champions each team played into a single list value in order to better organize our data and prepare it for merging. We save this dataframe to `champions_played`.
 
 ```py
