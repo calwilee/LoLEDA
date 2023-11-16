@@ -1831,6 +1831,7 @@ We filter our dataframe to contain only these columns:
 
 ## Data Cleaning and EDA
 ![cute poros :D](/images/trsnsiont2.webp)
+Before we begin analysis, we must first clean, organize and aggregate our data.
 
 > Region Filtration
 
@@ -1842,12 +1843,13 @@ If we take a look at our dataframe, we notice it contains two summary rows for e
 
 > Grouping and Aggrigations
 
-In order to have a dataframe that contains infomation about the champions played per match and the bans, we created two dataframes. For the both DataFrames, we grouped by `league`, `gameid`, and `teamname`. However, for the first dataframe, created a custom aggrrgation to combine the champions played for each team into a list. For the second DataFrame, we aggregated by the first series value to get champions banned, as this value is repeated for each match. We then preformed an inner megre between the two dataframes together by index.
+In order to have a dataframe that contains infomation about the champions played and banned per match, we created two dataframes. For both DataFrames, we grouped by `league`, `gameid`, and `teamname`. However, for the first dataframe, created a custom aggrrgation to combine the champions played for each team into a list. For the second DataFrame, we aggregated by the first series value to get champions banned, as this value is repeated for each match. We then preformed an inner megre between the two dataframes together by index. 
 
 > Finding the Most Banned Champions
 
-Using our dataframe from the previous step, we counted how many times each champion was banned, and sorted. 
-These were the top 10 most banned champions:
+Using our dataframe from the previous step, we counted how many times each champion was banned and sorted by count. 
+
+These were the top 15 most banned champions:
 1. Zeri            1608
 2. Gwen            1097
 3. Kalista         1074
@@ -1858,6 +1860,181 @@ These were the top 10 most banned champions:
 8. Sylas            790
 9. Caitlyn          776
 10. Lee Sin          748
+11. Wukong           697
+12. Yuumi            693
+13. Ryze             650
+14. Poppy            648
+15. Renata Glasc     642
+
+We consider a champion to be a "top ban" if it is in the top 15 most banned champions. 
+
+> Adding a `num_top_bannd` column
+
+Using a custom function, we then count how many times a top ban was banned in each match from our merged dataframe, and add it to a `num_top_bannd` column, and reset the index of our dataframe. 
+
+Here are the first 10 rows of our cleaned dataframe!
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>league</th>
+      <th>gameid</th>
+      <th>teamname</th>
+      <th>ban1</th>
+      <th>ban2</th>
+      <th>ban3</th>
+      <th>ban4</th>
+      <th>ban5</th>
+      <th>result</th>
+      <th>champion</th>
+      <th>num_top_banned</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>CBLOL</td>
+      <td>ESPORTSTMNT01_2695708</td>
+      <td>FURIA</td>
+      <td>Lee Sin</td>
+      <td>Thresh</td>
+      <td>Twisted Fate</td>
+      <td>Kai'Sa</td>
+      <td>Caitlyn</td>
+      <td>0</td>
+      <td>[Akali, Xin Zhao, Orianna, Jhin, Leona]</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>CBLOL</td>
+      <td>ESPORTSTMNT01_2695708</td>
+      <td>LOUD</td>
+      <td>Gwen</td>
+      <td>Diana</td>
+      <td>Jinx</td>
+      <td>Vex</td>
+      <td>Tryndamere</td>
+      <td>1</td>
+      <td>[Renekton, Viego, Corki, Aphelios, Nautilus]</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>CBLOL</td>
+      <td>ESPORTSTMNT01_2695774</td>
+      <td>Flamengo Esports</td>
+      <td>Nidalee</td>
+      <td>Corki</td>
+      <td>Diana</td>
+      <td>Lee Sin</td>
+      <td>Jayce</td>
+      <td>0</td>
+      <td>[Gwen, Xin Zhao, Orianna, Jhin, Maokai]</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>CBLOL</td>
+      <td>ESPORTSTMNT01_2695774</td>
+      <td>Netshoes Miners</td>
+      <td>Jinx</td>
+      <td>Twisted Fate</td>
+      <td>Caitlyn</td>
+      <td>Viktor</td>
+      <td>Syndra</td>
+      <td>1</td>
+      <td>[Tryndamere, Viego, Vex, Kai'Sa, Leona]</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>CBLOL</td>
+      <td>ESPORTSTMNT01_2695807</td>
+      <td>INTZ</td>
+      <td>Corki</td>
+      <td>Jayce</td>
+      <td>Akali</td>
+      <td>Kennen</td>
+      <td>Jax</td>
+      <td>0</td>
+      <td>[Gwen, Xin Zhao, LeBlanc, Sivir, Karma]</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>CBLOL</td>
+      <td>ESPORTSTMNT01_2695807</td>
+      <td>KaBuM! e-Sports</td>
+      <td>Ziggs</td>
+      <td>Renekton</td>
+      <td>Twisted Fate</td>
+      <td>Jhin</td>
+      <td>Ezreal</td>
+      <td>1</td>
+      <td>[Graves, Lee Sin, Viktor, Caitlyn, Nautilus]</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>CBLOL</td>
+      <td>ESPORTSTMNT01_2695835</td>
+      <td>RED Canids</td>
+      <td>Thresh</td>
+      <td>Caitlyn</td>
+      <td>Jinx</td>
+      <td>Braum</td>
+      <td>Karma</td>
+      <td>1</td>
+      <td>[Gwen, Xin Zhao, Akali, Samira, Rell]</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>CBLOL</td>
+      <td>ESPORTSTMNT01_2695835</td>
+      <td>Rensga eSports</td>
+      <td>Lee Sin</td>
+      <td>Leona</td>
+      <td>Twisted Fate</td>
+      <td>Nautilus</td>
+      <td>Rakan</td>
+      <td>0</td>
+      <td>[Gragas, Viego, Corki, Ezreal, Yuumi]</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>CBLOL</td>
+      <td>ESPORTSTMNT01_2696159</td>
+      <td>Liberty</td>
+      <td>Twisted Fate</td>
+      <td>Leona</td>
+      <td>Vex</td>
+      <td>LeBlanc</td>
+      <td>Akali</td>
+      <td>1</td>
+      <td>[Graves, Jarvan IV, Zoe, Caitlyn, Lux]</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>CBLOL</td>
+      <td>ESPORTSTMNT01_2696159</td>
+      <td>Rensga eSports</td>
+      <td>Gwen</td>
+      <td>Corki</td>
+      <td>Thresh</td>
+      <td>Camille</td>
+      <td>Renekton</td>
+      <td>0</td>
+      <td>[Jayce, Viego, Viktor, Jhin, Karma]</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
 
 Lets plot these values: 
 
@@ -1866,6 +2043,7 @@ Lets plot these values:
 <iframe src="assets/withline.html" width=750 height=500 frameBorder=0></iframe>
 
 </div>
+Plot of champions and the number of times they were banned 
 
 <div class="table-wrapper" markdown="block">
 
