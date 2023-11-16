@@ -2034,6 +2034,7 @@ Now that we have our cleaned dataframe, lets take a look at generally how many t
 
 </div>
 
+We can see that most teams ban 1 - 3 top bans during a match. Very rarely do teams use all their bans on top bans. 
 
 ## Bivariate Analysis
 
