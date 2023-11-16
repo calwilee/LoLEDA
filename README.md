@@ -2024,6 +2024,17 @@ Here are the first 10 rows of our cleaned dataframe!
   </tbody>
 </table>
 
+## Univariate Analysis
+
+Now that we have our cleaned dataframe, lets take a look at generally how many top bans a team bans. We can do so by plotting a histogram.
+
+<div class="table-wrapper" markdown="block">
+
+<iframe src="assets/numfreqbanned.html" width=750 height=500 frameBorder=0></iframe>
+
+</div>
+
+
 ## Bivariate Analysis
 
 For our bivariate analysis, we found the winrate for each number of top bans:
@@ -2036,7 +2047,7 @@ For our bivariate analysis, we found the winrate for each number of top bans:
 
 It seems like the more a team bans a "top ban" the more likely they are to lose! This is a bit counterintuitive, as one would think that banning more powerful champions would lead to higher winrate. However, we have yet to consider the fact that just because a champion wasn't banned doesn't mean that they were played. If no one chose to play that champion, it would be as if they were banned from the game.
 
-We can find the number of top bans present in `champion` and find the mean winreate per count. 
+Lets take a look at how a top ban's presence in a team's draft impacts winrate. We can find the number of top bans present in `champion` and find the mean winreate per number of top bans present in a team. 
 
 <div class="table-wrapper" markdown="block">
 
