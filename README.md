@@ -1834,7 +1834,7 @@ We filter our dataframe to contain only these columns:
 Before we can start answering the question, we need to clean the data and extract any information that might be useful to us.
 ### Data Cleaning
 
-> <i>Region Filtration </i>
+> Region Filtration
 
 For this analysis, we are going to be focusing on tier-one leagues, Worlds, and MSI, since these leagues contain the best players and highest quality gameplay. We filter for these leagues in our dataframe rows
 
