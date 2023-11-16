@@ -2,14 +2,14 @@
 ## Introduction
 League of Legends is a 5v5 multiplayer online battle arena. Each player fulfills one of 5 roles (Top, Mid, ADC, Support, and Jungle) and has the objective of destroying the enemy team's Nexus. Since its release, League of Legends has become one of the most played games in the world, ranking 5th overall for the [most popular PC games by monthly active users](https://newzoo.com/resources/rankings/top-20-pc-games). 
 
-Along with being one of the most popular games globally, League of Legends is also the world's largest [esport](https://en.wikipedia.org/wiki/Esports). During League of Legends esport tournaments, each player on both teams has the chance to ban a champion. Whan a champion is banned, they are removed from the pool of available champions and cannot be selected. Since each player can ban a champion, there are a total of 10 bans per game. During tournaments some champions are more banned than others. This leads us to our question:
+Along with being one of the most popular games globally, League of Legends is also the world's largest [esport](https://en.wikipedia.org/wiki/Esports). During League of Legends esport tournaments, each player on both teams has the chance to ban a champion. When a champion is banned, they are removed from the pool of available champions and cannot be selected. Since each player can ban a champion, there are a total of 10 bans per game. During tournaments some champions are more banned than others. This leads us to our question:
 
 ### If a team doesn't ban the most banned champions, are they more likely to lose?
 
 
 We want to see the impact a champion's presence, or lack thereof, can have on the results of the match. Depending on our results, viewers of these tournaments can potentially predict the outcome of the match before it even starts and the teams playing in them can be better informed on the importance of their bans and better decide who to ban.
    
-In order to answer this question, we'll use a permutation test to analyze whether banning a commenly banned champion yields a higher win rate than not banning one. Before we get to that, we will clean the data, perform an EDA, and assess and determine what to do about the missing data.
+In order to answer this question, we'll use a permutation test to analyze whether banning a commonly banned champion yields a higher win rate than not banning one. Before we get to that, we will clean the data, perform an EDA, and assess and determine what to do about the missing data.
 
 For this project, we are going to look at Oracle's Elixer's League of Legends Competitive Matches data from 2022. 
 
@@ -2047,6 +2047,79 @@ We can find the number of top bans present in `champion` and find the mean winre
 This graph tells a very different story than our previous one. It seems that if a team drafts a "top ban" then their chances of winning increace! This makes sense, as top bans should be strong champions, helping to increace the overall strength of a team. 
 
 ## Interesting Aggregates
+
+In our bivariate analysis, we anlayzed the relationship between banning a top ban and winrate, and drafting a top ban and winrate.  Lets expolore the relationship between between both `num_top_banned`, `top_ban_present` and win rate. To do so we can utlize a pivot table 
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>top_ban_present</th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+    </tr>
+    <tr>
+      <th>num_top_banned</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.524590</td>
+      <td>0.552326</td>
+      <td>0.644444</td>
+      <td>0.588235</td>
+      <td>0.444444</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.468085</td>
+      <td>0.509954</td>
+      <td>0.586558</td>
+      <td>0.567073</td>
+      <td>0.473684</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.451115</td>
+      <td>0.485774</td>
+      <td>0.520958</td>
+      <td>0.532338</td>
+      <td>0.612903</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.450450</td>
+      <td>0.456753</td>
+      <td>0.489855</td>
+      <td>0.489130</td>
+      <td>0.722222</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.427273</td>
+      <td>0.453988</td>
+      <td>0.549451</td>
+      <td>0.458333</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0.368421</td>
+      <td>0.692308</td>
+      <td>0.285714</td>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
 
 
 
