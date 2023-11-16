@@ -2224,7 +2224,7 @@ Consider the match below:
   </tbody>
 </table>
 
-If we take a look at the [recording](https://www.youtube.com/live/fbbsRe2eTLg?feature=shared&t=20375) at around 5:39:40, we can see that T1 did not ban a champion for their third slot! According to the announcers, players will sometimes ban no one because they want to leave a powerful champion avaiable to be picked for their own team.  
+If we take a look at the [recording](https://www.youtube.com/live/fbbsRe2eTLg?feature=shared&t=20375){:target="_blank"}, we can see that T1 did not ban a champion for their third slot! According to the announcers, players will sometimes ban no one because they want to leave a powerful champion avaiable to be picked for their own team.  
 
 Additionally, players sometimes forgoe a ban because they see it as an opportunity to learn and improve at the game. If they are forced to go against some of the most powerful champions in game, they can develop strategies to counter said champion and also get better.
 
@@ -2279,8 +2279,11 @@ Finally, there may be some misreports. Consider the match below:
   </tbody>
 </table>
 
-At first glance, it may appear here that no one on either team banned a champion. If we take a look at the [recording](https://www.twitch.tv/videos/1302904867?t=05h29m25s) at 5:27:00, we can see that they did ban champions. Even though this occurence would be a case of MCAR, it appears that the majority of the bans were correctly reported. As a result, we can conclude that the missing values in the ban columns are missing by design. When a player chooses not to ban a champion, there is no banned champion to report, so the data is missing.
-4
+At first glance, it may appear here that no one on either team banned a champion. If we take a look at the [recording](https://www.twitch.tv/videos/1302904867?t=05h29m25s){:target="_blank"}, we can see that they did ban champions. Even though this occurence would be a case of MCAR, it appears that the majority of the bans were correctly reported. As a result, we can conclude that the missing values in the ban columns are missing by design. When a player chooses not to ban a champion, there is no banned champion to report, so the data is missing. 
+
+## Missingness Dependency
+
+
 
 
 
