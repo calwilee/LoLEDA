@@ -2048,7 +2048,9 @@ This graph tells a very different story than our previous one. It seems that if 
 
 ## Interesting Aggregates
 
-In our bivariate analysis, we anlayzed the relationship between banning a top ban and winrate, and drafting a top ban and winrate.  Lets expolore the relationship between between both `num_top_banned`, `top_ban_present` and win rate. To do so we can utlize a pivot table 
+In our bivariate analysis, we anlayzed the relationship between banning a top ban and winrate, and drafting a top ban and winrate.  Lets expolore the relationship between between both `num_top_banned`, `top_ban_present` and win rate. The idea behind this is to look at what happens when a team chooses to ban a certain number of champions from `top_bans` and when they decide to play a certain number of them. 
+
+To do so we can utlize a pivot table that shows the ****mean win rate for the number of top banned champions conditioned on the number of top bans present in a team. Essentally, our pivot table shows the winrate given x number of top bans banned, and y number of top bans drafted.
 
 <table border="1" class="dataframe">
   <thead>
