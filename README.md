@@ -2315,39 +2315,21 @@ TVD between `ban1` and `ban5`, since `ban1` is categorical
 
 We calculate a p-value of 0.0682. Since this is greater than our significance level of .05 we fail to reject the null, and conclude that the missingness of `ban5` is not dependent on `ban1`. Essentially, whether or not a team choses to forfit their last ban is not dependent on their first ban. 
 
+## Missingness Dependency
+Now that we've cleaned the data, performed an exploratory data analysis, and assessed the missing data in our dataset, we are now ready to answer our question: If a team doesn't ban the most banned champions, are they more likely to lose?
 
+We will perform a permutation test with a significance level of 0.05 and with the following null and alternate hypothesis:\
+**Null Hypothesis:** If a team doesn't ban at least 1 of the top banned champions, they have the same win rate as those who did ban at least 1 of the top banned champions.\\
+**Alternate Hypothesis:** If a team doesn't ban at least 1 of the top banned champions, they have a lower win rate as those who did ban at least 1 of the top banned champions.\\
 
-
-
-
-
-
-
-Lets plot these values: 
-
-<div class="table-wrapper" markdown="block">
-
-<iframe src="assets/winratepernumbanned.html" width=725 height=500 frameBorder=0></iframe>
-
-</div>
-Plot of champions and the number of times they were banned 
+As for our test statistic, we will use the differnece in means since we are interested in a direction and we can calculate the mean win rate depending on if at least one top champion was banned.
 
 <div class="table-wrapper" markdown="block">
 
-<iframe src="assets/first_five_drops.html" width=725 height=500 frameBorder=0></iframe>
+<iframe src="assets/permutationtestfinal.html" width=725 height=500 frameBorder=0></iframe>
 
 </div>
 
-We can see that from the graph that these champions are in the top 15 of `ban_amount`. Coincidentally, this is associated with the top 10% of `ban_amount`. Let's see the percentage of bans these champions make up.
-
-```py
-top_bans.sum() / ban_amount.sum()  = 0.39743119266055044
-```
-When we calculate the total amount of bans and the number of bans within the top 15, we can see that they make up almost 40% of the bans. 
-
-Therefore, we will set the `top_bans` to be the top 15 or 10% of `ban_amount`.
-
-Now that we've determined who makes up the most banned champions, we will now figure out how many of those champions teams banned per game and record that data into our DataFrame in a new column called `'num_top_banned'`. We'll accomplish this by defining a function that counts the number of times a team banned a champion in `top_bans` and then apply that to the DataFrame.
-
+We calculate a p-value of 0.0004. Since this is greater than our significance level of .05 we fail to reject our null. From this we can say that the data suggests that banning at least one top ban leads to a lower winrate in comparison to teams that did not ban a top ban. 
 
 
