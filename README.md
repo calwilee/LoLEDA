@@ -2130,14 +2130,14 @@ Lets plot these values:
 
 <div class="table-wrapper" markdown="block">
 
-<iframe src="assets/winratepernumbanned.html" width=750 height=500 frameBorder=0></iframe>
+<iframe src="assets/winratepernumbanned.html" width=725 height=500 frameBorder=0></iframe>
 
 </div>
 Plot of champions and the number of times they were banned 
 
 <div class="table-wrapper" markdown="block">
 
-<iframe src="assets/first_five_drops.html" width=750 height=500 frameBorder=0></iframe>
+<iframe src="assets/first_five_drops.html" width=725 height=500 frameBorder=0></iframe>
 
 </div>
 
