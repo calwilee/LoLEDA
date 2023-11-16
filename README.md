@@ -2287,8 +2287,8 @@ Although we have concluded that our data is missing by design, running analysis 
 
 > `ban5` and `gameid`
 
-Null hypothesis: the distribution of `gameid` when `ban5` is missing is about the same as the distribution of the `gameid` when `ban5` is not missing
-Alternative hypothesis: the distribution of `gameid` when `ban5` is missing is different than the distribution of the `gameid` when `ban5` is not missing
+Null hypothesis: the distribution of `gameid` when `ban5` is missing is about the same as the distribution of the `gameid` when `ban5` is not missing\
+Alternative hypothesis: the distribution of `gameid` when `ban5` is missing is different than the distribution of the `gameid` when `ban5` is not missing\
 Test statistic: TVD between `gameid` and `ban5`, since `gameid` is categorical
 
 <div class="table-wrapper" markdown="block">
@@ -2303,8 +2303,8 @@ Certain teams may be more comfortable forfeiting a ban depending on who they are
 
 > `ban5` and `ban1`
 
-Null hypothesis: the distribution of `ban1` when `ban5` is missing is about the same as the distribution of the `ban1` when `ban5` is not missing
-Alternative hypothesis: the distribution of `ban1` when `ban5` is missing is different than the distribution of the `ban1` when `ban5` is not missing
+Null hypothesis: the distribution of `ban1` when `ban5` is missing is about the same as the distribution of the `ban1` when `ban5` is not missing\
+Alternative hypothesis: the distribution of `ban1` when `ban5` is missing is different than the distribution of the `ban1` when `ban5` is not missing\
 TVD between `ban1` and `ban5`, since `ban1` is categorical
 
 <div class="table-wrapper" markdown="block">
