@@ -1885,7 +1885,7 @@ Here are the first 10 rows of our cleaned dataframe!
       <th>ban3</th>
       <th>ban4</th>
       <th>ban5</th>
-      <th>result</th>
+      <th>win</th>
       <th>champion</th>
       <th>num_top_banned</th>
     </tr>
@@ -1900,7 +1900,7 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>Twisted Fate</td>
       <td>Kai'Sa</td>
       <td>Caitlyn</td>
-      <td>0</td>
+      <td>False</td>
       <td>[Akali, Xin Zhao, Orianna, Jhin, Leona]</td>
       <td>3</td>
     </tr>
@@ -1913,7 +1913,7 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>Jinx</td>
       <td>Vex</td>
       <td>Tryndamere</td>
-      <td>1</td>
+      <td>True</td>
       <td>[Renekton, Viego, Corki, Aphelios, Nautilus]</td>
       <td>1</td>
     </tr>
@@ -1926,7 +1926,7 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>Diana</td>
       <td>Lee Sin</td>
       <td>Jayce</td>
-      <td>0</td>
+      <td>False</td>
       <td>[Gwen, Xin Zhao, Orianna, Jhin, Maokai]</td>
       <td>1</td>
     </tr>
@@ -1939,7 +1939,7 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>Caitlyn</td>
       <td>Viktor</td>
       <td>Syndra</td>
-      <td>1</td>
+      <td>True</td>
       <td>[Tryndamere, Viego, Vex, Kai'Sa, Leona]</td>
       <td>2</td>
     </tr>
@@ -1952,7 +1952,7 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>Akali</td>
       <td>Kennen</td>
       <td>Jax</td>
-      <td>0</td>
+      <td>False</td>
       <td>[Gwen, Xin Zhao, LeBlanc, Sivir, Karma]</td>
       <td>0</td>
     </tr>
@@ -1965,7 +1965,7 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>Twisted Fate</td>
       <td>Jhin</td>
       <td>Ezreal</td>
-      <td>1</td>
+      <td>True</td>
       <td>[Graves, Lee Sin, Viktor, Caitlyn, Nautilus]</td>
       <td>1</td>
     </tr>
@@ -1978,7 +1978,7 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>Jinx</td>
       <td>Braum</td>
       <td>Karma</td>
-      <td>1</td>
+      <td>True</td>
       <td>[Gwen, Xin Zhao, Akali, Samira, Rell]</td>
       <td>1</td>
     </tr>
@@ -1991,7 +1991,7 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>Twisted Fate</td>
       <td>Nautilus</td>
       <td>Rakan</td>
-      <td>0</td>
+      <td>False</td>
       <td>[Gragas, Viego, Corki, Ezreal, Yuumi]</td>
       <td>2</td>
     </tr>
@@ -2004,7 +2004,7 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>Vex</td>
       <td>LeBlanc</td>
       <td>Akali</td>
-      <td>1</td>
+      <td>True</td>
       <td>[Graves, Jarvan IV, Zoe, Caitlyn, Lux]</td>
       <td>2</td>
     </tr>
@@ -2017,7 +2017,7 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>Thresh</td>
       <td>Camille</td>
       <td>Renekton</td>
-      <td>0</td>
+      <td>False</td>
       <td>[Jayce, Viego, Viktor, Jhin, Karma]</td>
       <td>1</td>
     </tr>
@@ -2038,8 +2038,7 @@ We can see that most teams ban 1 - 3 top bans during a match. Very rarely do tea
 
 ## Bivariate Analysis
 
-For our bivariate analysis, we found the winrate for each number of top bans:
-
+Lets take a look at the average win rate per number of top bans banned. We utilize `num_top_banned` and `win`
 <div class="table-wrapper" markdown="block">
 
 <iframe src="assets/winratepernumbanned.html" width=750 height=500 frameBorder=0></iframe>
