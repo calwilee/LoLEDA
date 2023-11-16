@@ -2063,7 +2063,7 @@ In our bivariate analysis, we anlayzed the relationship between banning a top ba
 
 To do so we can utlize a pivot table that shows the ****mean win rate for the number of top banned champions conditioned on the number of top bans present in a team. Essentally, our pivot table shows the winrate given x number of top bans banned, and y number of top bans drafted.
 
-<table border="1" class="dataframe">
+<table border="1" class="dataframe" style="width:100%">
   <thead>
     <tr style="text-align: right;">
       <th>top_ban_present</th>
