@@ -1872,9 +1872,9 @@ These were the top 15 most banned champions:
 
 We consider a champion to be a "top ban" if it is in the top 15 most banned champions. 
 
-> Adding a `num_top_bannd` and `num_top_drafted` column 
+> Adding a `num_top_banned` and `num_top_drafted` column 
 
-Using a custom function, we then count how many times a top ban was banned in each match from our merged dataframe, and add it to a `num_top_bannd` column. Using a similar agregation function, we count how many times a top ban was drafted, and add it to a `num_top_drafted` column and reset the index of our dataframe. 
+Using a custom function, we then count how many times a top ban was banned in each match from our merged dataframe, and add it to a `num_top_banned` column. Using a similar agregation function, we count how many times a top ban was drafted, and add it to a `num_top_drafted` column and reset the index of our dataframe. 
 
 Here are the first 10 rows of our cleaned dataframe!
 
@@ -2154,6 +2154,138 @@ It appears the fewer top bans a team bans, and the more a team drafts top bans, 
 In addition to that, there are times where when a team chooses too much from top_bans, their win rate also goes down. This could imply that there are other factors at play here outside the scope of our analysis that impacts the chances of a team winning. Another reason behind these discrepancies is that there is not as much data on these scenarios, so the win rate varies more.
 
 ## Assesment of Missingness 
+
+## NMAR Analysis
+Before preforming hypothesis testing, we need to first deal with missing values. We can begin by generating a dictonary containing the number of missing values per column 
+
+```py
+{'league': 0,
+ 'gameid': 0,
+ 'teamname': 0,
+ 'ban1': 5,
+ 'ban2': 4,
+ 'ban3': 12,
+ 'ban4': 9,
+ 'ban5': 20,
+ 'win': 0,
+ 'champion': 0,
+ 'num_top_banned': 0,
+ 'top_ban_present': 0}
+```
+All of our data that is missing is in a ban column. Perhaps this is because players chose to not ban a champion! Lets investigate further. 
+
+Consider the match below:
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>league</th>
+      <th>gameid</th>
+      <th>teamname</th>
+      <th>ban1</th>
+      <th>ban2</th>
+      <th>ban3</th>
+      <th>ban4</th>
+      <th>ban5</th>
+      <th>win</th>
+      <th>champion</th>
+      <th>num_top_banned</th>
+      <th>top_ban_present</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LCK</td>
+      <td>ESPORTSTMNT01_2691557</td>
+      <td>Fredit BRION</td>
+      <td>Yuumi</td>
+      <td>Caitlyn</td>
+      <td>Twisted Fate</td>
+      <td>Viktor</td>
+      <td>Ryze</td>
+      <td>False</td>
+      <td>[Gragas, Xin Zhao, Corki, Varus, Karma]</td>
+      <td>4</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>LCK</td>
+      <td>ESPORTSTMNT01_2691557</td>
+      <td>T1</td>
+      <td>Lee Sin</td>
+      <td>Renekton</td>
+      <td>NaN</td>
+      <td>Camille</td>
+      <td>LeBlanc</td>
+      <td>True</td>
+      <td>[Gwen, Jarvan IV, Vex, Aphelios, Lulu]</td>
+      <td>2</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+If we take a look at the [recording](https://www.youtube.com/live/fbbsRe2eTLg?feature=shared&t=20375) at around 5:39:40, we can see that T1 did not ban a champion for their third slot! According to the announcers, players will sometimes ban no one because they want to leave a powerful champion avaiable to be picked for their own team.  
+
+Additionally, players sometimes forgoe a ban because they see it as an opportunity to learn and improve at the game. If they are forced to go against some of the most powerful champions in game, they can develop strategies to counter said champion and also get better.
+
+Finally, there may be some misreports. Consider the match below: 
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th>league</th>
+      <th>gameid</th>
+      <th>teamname</th>
+      <th>ban1</th>
+      <th>ban2</th>
+      <th>ban3</th>
+      <th>ban4</th>
+      <th>ban5</th>
+      <th>win</th>
+      <th>champion</th>
+      <th>num_top_banned</th>
+      <th>top_ban_present</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>LPL</td>
+      <td>8473-8473_game_1</td>
+      <td>JD Gaming</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>False</td>
+      <td>[Gragas, Viego, Viktor, Zeri, Leona]</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>LPL</td>
+      <td>8473-8473_game_1</td>
+      <td>Top Esports</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>True</td>
+      <td>[Gnar, Lee Sin, Vex, Draven, Nautilus]</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+
+At first glance, it may appear here that no one on either team banned a champion. If we take a look at the [recording](https://www.twitch.tv/videos/1302904867?t=05h29m25s) at 5:27:00, we can see that they did ban champions. Even though this occurence would be a case of MCAR, it appears that the majority of the bans were correctly reported. As a result, we can conclude that the missing values in the ban columns are missing by design. When a player chooses not to ban a champion, there is no banned champion to report, so the data is missing.
+4
+
+
+
+
+
 
 
 
