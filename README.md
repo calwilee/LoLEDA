@@ -2320,7 +2320,7 @@ We calculate a p-value of 0.0682. Since this is greater than our significance le
 ![heimerdinger](images/heimer.webp)
 Now that we've cleaned the data, performed an exploratory data analysis, and assessed the missing data in our dataset, we are now ready to answer our question: If a team doesn't ban the most banned champions, are they more likely to lose?
 
-We will perform a permutation test with a significance level of 0.05 and with the following null and alternate hypothesis:\
+We will perform a permutation test with a significance level of 0.05 and with the following null and alternate hypothesis:
 
 **Null Hypothesis:** If a team doesn't ban at least 1 of the top banned champions, they have the same win rate as those who did ban at least 1 of the top banned champions.\\
 **Alternate Hypothesis:** If a team doesn't ban at least 1 of the top banned champions, they have a lower win rate as those who did ban at least 1 of the top banned champions.\\
