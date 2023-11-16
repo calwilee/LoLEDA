@@ -1877,7 +1877,6 @@ Here are the first 10 rows of our cleaned dataframe!
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th></th>
       <th>league</th>
       <th>gameid</th>
       <th>teamname</th>
@@ -1893,7 +1892,6 @@ Here are the first 10 rows of our cleaned dataframe!
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
       <td>CBLOL</td>
       <td>ESPORTSTMNT01_2695708</td>
       <td>FURIA</td>
@@ -1907,7 +1905,6 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>3</td>
     </tr>
     <tr>
-      <th>1</th>
       <td>CBLOL</td>
       <td>ESPORTSTMNT01_2695708</td>
       <td>LOUD</td>
@@ -1921,7 +1918,6 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>1</td>
     </tr>
     <tr>
-      <th>2</th>
       <td>CBLOL</td>
       <td>ESPORTSTMNT01_2695774</td>
       <td>Flamengo Esports</td>
@@ -1935,7 +1931,6 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>1</td>
     </tr>
     <tr>
-      <th>3</th>
       <td>CBLOL</td>
       <td>ESPORTSTMNT01_2695774</td>
       <td>Netshoes Miners</td>
@@ -1949,7 +1944,6 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>2</td>
     </tr>
     <tr>
-      <th>4</th>
       <td>CBLOL</td>
       <td>ESPORTSTMNT01_2695807</td>
       <td>INTZ</td>
@@ -1963,7 +1957,6 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>0</td>
     </tr>
     <tr>
-      <th>5</th>
       <td>CBLOL</td>
       <td>ESPORTSTMNT01_2695807</td>
       <td>KaBuM! e-Sports</td>
@@ -1977,7 +1970,6 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>1</td>
     </tr>
     <tr>
-      <th>6</th>
       <td>CBLOL</td>
       <td>ESPORTSTMNT01_2695835</td>
       <td>RED Canids</td>
@@ -1991,7 +1983,6 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>1</td>
     </tr>
     <tr>
-      <th>7</th>
       <td>CBLOL</td>
       <td>ESPORTSTMNT01_2695835</td>
       <td>Rensga eSports</td>
@@ -2005,7 +1996,6 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>2</td>
     </tr>
     <tr>
-      <th>8</th>
       <td>CBLOL</td>
       <td>ESPORTSTMNT01_2696159</td>
       <td>Liberty</td>
@@ -2019,7 +2009,6 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>2</td>
     </tr>
     <tr>
-      <th>9</th>
       <td>CBLOL</td>
       <td>ESPORTSTMNT01_2696159</td>
       <td>Rensga eSports</td>
