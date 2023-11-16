@@ -1829,7 +1829,7 @@ We filter our dataframe to contain only these columns:
   </tbody>
 </table>
 
-## Data Cleaning
+## Data Cleaning and Analysis
 ![cute poros :D](/images/trsnsiont2.webp)
 Before we begin analysis, we must first clean, organize and aggregate our data.
 
@@ -2154,6 +2154,7 @@ It appears the fewer top bans a team bans, and the more a team drafts top bans, 
 In addition to that, there are times where when a team chooses too much from top_bans, their win rate also goes down. This could imply that there are other factors at play here outside the scope of our analysis that impacts the chances of a team winning. Another reason behind these discrepancies is that there is not as much data on these scenarios, so the win rate varies more.
 
 ## Assesment of Missingness 
+![caitlyndetective](images/missingness.webp)
 
 ## NMAR Analysis
 Before preforming hypothesis testing, we need to first deal with missing values. We can begin by generating a dictonary containing the number of missing values per column 
@@ -2315,7 +2316,8 @@ TVD between `ban1` and `ban5`, since `ban1` is categorical
 
 We calculate a p-value of 0.0682. Since this is greater than our significance level of .05 we fail to reject the null, and conclude that the missingness of `ban5` is not dependent on `ban1`. Essentially, whether or not a team choses to forfit their last ban is not dependent on their first ban. 
 
-## Missingness Dependency
+## Hypothesis Testing
+![heimerdinger](images/heimer.webp)
 Now that we've cleaned the data, performed an exploratory data analysis, and assessed the missing data in our dataset, we are now ready to answer our question: If a team doesn't ban the most banned champions, are they more likely to lose?
 
 We will perform a permutation test with a significance level of 0.05 and with the following null and alternate hypothesis:\
