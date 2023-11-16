@@ -11,7 +11,7 @@ We want to see the impact a champion's presence, or lack thereof, can have on th
    
 In order to answer this question, we'll use a permutation test to analyze whether banning a commenly banned champion yields a higher win rate than not banning one. Before we get to that, we will clean the data, perform an EDA, and assess and determine what to do about the missing data.
 
-For this project, we are going to look at Oracle's Elixer's League of Legends Competitive Matches data from 2022. This dataset onlines information about the overall stats of the game and the performance of the players/team across multiple matches and leagues. We have selected the 2022 dataset as it is complete; according to Oracle's Elixer,  datasets are updated once per day, so the 2023 dataset would be subject to daily updates before the season's end, and our analysis would quickly become outdated.
+For this project, we are going to look at Oracle's Elixer's League of Legends Competitive Matches data from 2022. 
 
 <table border="1" class="dataframe">
   <thead>
@@ -1893,7 +1893,7 @@ Here are the first 10 rows of our cleaned dataframe!
   <tbody>
     <tr>
       <td>CBLOL</td>
-      <td>E...708</td>
+      <td>ESPORTSTMNT01_2695708</td>
       <td>FURIA</td>
       <td>Lee Sin</td>
       <td>Thresh</td>
@@ -1906,7 +1906,7 @@ Here are the first 10 rows of our cleaned dataframe!
     </tr>
     <tr>
       <td>CBLOL</td>
-      <td>E...708</td>
+      <td>ESPORTSTMNT01_2695708</td>
       <td>LOUD</td>
       <td>Gwen</td>
       <td>Diana</td>
@@ -1919,7 +1919,7 @@ Here are the first 10 rows of our cleaned dataframe!
     </tr>
     <tr>
       <td>CBLOL</td>
-      <td>E...774</td>
+      <td>ESPORTSTMNT01_2695774</td>
       <td>Flamengo Esports</td>
       <td>Nidalee</td>
       <td>Corki</td>
@@ -1932,7 +1932,7 @@ Here are the first 10 rows of our cleaned dataframe!
     </tr>
     <tr>
       <td>CBLOL</td>
-      <td>E...774</td>
+      <td>ESPORTSTMNT01_2695774</td>
       <td>Netshoes Miners</td>
       <td>Jinx</td>
       <td>Twisted Fate</td>
@@ -1945,7 +1945,7 @@ Here are the first 10 rows of our cleaned dataframe!
     </tr>
     <tr>
       <td>CBLOL</td>
-      <td>E...807</td>
+      <td>ESPORTSTMNT01_2695807</td>
       <td>INTZ</td>
       <td>Corki</td>
       <td>Jayce</td>
@@ -1958,7 +1958,7 @@ Here are the first 10 rows of our cleaned dataframe!
     </tr>
     <tr>
       <td>CBLOL</td>
-      <td>E...807</td>
+      <td>ESPORTSTMNT01_2695807</td>
       <td>KaBuM! e-Sports</td>
       <td>Ziggs</td>
       <td>Renekton</td>
@@ -1971,7 +1971,7 @@ Here are the first 10 rows of our cleaned dataframe!
     </tr>
     <tr>
       <td>CBLOL</td>
-      <td>ESPORT...835</td>
+      <td>ESPORTSTMNT01_2695835</td>
       <td>RED Canids</td>
       <td>Thresh</td>
       <td>Caitlyn</td>
@@ -1984,7 +1984,7 @@ Here are the first 10 rows of our cleaned dataframe!
     </tr>
     <tr>
       <td>CBLOL</td>
-      <td>E..835</td>
+      <td>ESPORTSTMNT01_2695835</td>
       <td>Rensga eSports</td>
       <td>Lee Sin</td>
       <td>Leona</td>
@@ -1997,7 +1997,7 @@ Here are the first 10 rows of our cleaned dataframe!
     </tr>
     <tr>
       <td>CBLOL</td>
-      <td>E...159</td>
+      <td>ESPORTSTMNT01_2696159</td>
       <td>Liberty</td>
       <td>Twisted Fate</td>
       <td>Leona</td>
@@ -2010,7 +2010,7 @@ Here are the first 10 rows of our cleaned dataframe!
     </tr>
     <tr>
       <td>CBLOL</td>
-      <td>E...159</td>
+      <td>ESPORTSTMNT01_2696159</td>
       <td>Rensga eSports</td>
       <td>Gwen</td>
       <td>Corki</td>
@@ -2023,6 +2023,18 @@ Here are the first 10 rows of our cleaned dataframe!
     </tr>
   </tbody>
 </table>
+
+## Univariate Analysis
+
+
+
+
+
+
+
+
+
+
 
 
 Lets plot these values: 
