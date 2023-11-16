@@ -1893,7 +1893,7 @@ Here are the first 10 rows of our cleaned dataframe!
   <tbody>
     <tr>
       <td>CBLOL</td>
-      <td>ESPORTSTMNT01_2695708</td>
+      <td>ESPORT...708</td>
       <td>FURIA</td>
       <td>Lee Sin</td>
       <td>Thresh</td>
@@ -1906,7 +1906,7 @@ Here are the first 10 rows of our cleaned dataframe!
     </tr>
     <tr>
       <td>CBLOL</td>
-      <td>ESPORTSTMNT01_2695708</td>
+      <td>ESPORT...708</td>
       <td>LOUD</td>
       <td>Gwen</td>
       <td>Diana</td>
@@ -1919,7 +1919,7 @@ Here are the first 10 rows of our cleaned dataframe!
     </tr>
     <tr>
       <td>CBLOL</td>
-      <td>ESPORTSTMNT01_2695774</td>
+      <td>ESPORT...774</td>
       <td>Flamengo Esports</td>
       <td>Nidalee</td>
       <td>Corki</td>
@@ -1932,7 +1932,7 @@ Here are the first 10 rows of our cleaned dataframe!
     </tr>
     <tr>
       <td>CBLOL</td>
-      <td>ESPORTSTMNT01_2695774</td>
+      <td>ESPORT...774</td>
       <td>Netshoes Miners</td>
       <td>Jinx</td>
       <td>Twisted Fate</td>
@@ -1945,7 +1945,7 @@ Here are the first 10 rows of our cleaned dataframe!
     </tr>
     <tr>
       <td>CBLOL</td>
-      <td>ESPORTSTMNT01_2695807</td>
+      <td>ESPORT...807</td>
       <td>INTZ</td>
       <td>Corki</td>
       <td>Jayce</td>
@@ -1958,7 +1958,7 @@ Here are the first 10 rows of our cleaned dataframe!
     </tr>
     <tr>
       <td>CBLOL</td>
-      <td>ESPORTSTMNT01_2695807</td>
+      <td>ESPORT...807</td>
       <td>KaBuM! e-Sports</td>
       <td>Ziggs</td>
       <td>Renekton</td>
@@ -1971,7 +1971,7 @@ Here are the first 10 rows of our cleaned dataframe!
     </tr>
     <tr>
       <td>CBLOL</td>
-      <td>ESPORTSTMNT01_2695835</td>
+      <td>ESPORT...835</td>
       <td>RED Canids</td>
       <td>Thresh</td>
       <td>Caitlyn</td>
@@ -1984,7 +1984,7 @@ Here are the first 10 rows of our cleaned dataframe!
     </tr>
     <tr>
       <td>CBLOL</td>
-      <td>ESPORTSTMNT01_2695835</td>
+      <td>ESPORT..835</td>
       <td>Rensga eSports</td>
       <td>Lee Sin</td>
       <td>Leona</td>
@@ -1997,7 +1997,7 @@ Here are the first 10 rows of our cleaned dataframe!
     </tr>
     <tr>
       <td>CBLOL</td>
-      <td>ESPORTSTMNT01_2696159</td>
+      <td>ESPORT...159</td>
       <td>Liberty</td>
       <td>Twisted Fate</td>
       <td>Leona</td>
@@ -2010,7 +2010,7 @@ Here are the first 10 rows of our cleaned dataframe!
     </tr>
     <tr>
       <td>CBLOL</td>
-      <td>ESPORTSTMNT01_2696159</td>
+      <td>ESPORT...159</td>
       <td>Rensga eSports</td>
       <td>Gwen</td>
       <td>Corki</td>
