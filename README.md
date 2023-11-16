@@ -1,8 +1,8 @@
 ![lolimg](/images/lolbanner.jpeg)
 ## Introduction
-League of Legends is a 5v5 multiplayer online battle arena. Each player fulfills one of 5 roles (Top, Mid, ADC, Support, and Jungle) and has the objective of destroying the enemy team's Nexus. Since its release, League of Legends has become one of the most played games in the world, ranking 5th overall for the [most popular PC games by monthly active users](https://newzoo.com/resources/rankings/top-20-pc-games). 
+League of Legends is a 5v5 multiplayer online battle arena. Each player fulfills one of 5 roles (Top, Mid, ADC, Support, and Jungle) and has the objective of destroying the enemy team's Nexus. Since its release, League of Legends has become one of the most played games in the world, ranking 5th overall for the [most popular PC games by monthly active users](https://newzoo.com/resources/rankings/top-20-pc-games){:target="_blank"}. 
 
-Along with being one of the most popular games globally, League of Legends is also the world's largest [esport](https://en.wikipedia.org/wiki/Esports). During League of Legends esport tournaments, each player on both teams has the chance to ban a champion. When a champion is banned, they are removed from the pool of available champions and cannot be selected. Since each player can ban a champion, there are a total of 10 bans per game. During tournaments some champions are more banned than others. This leads us to our question:
+Along with being one of the most popular games globally, League of Legends is also the world's largest [esport](https://en.wikipedia.org/wiki/Esports){:target="_blank"}. During League of Legends esport tournaments, each player on both teams has the chance to ban a champion. When a champion is banned, they are removed from the pool of available champions and cannot be selected. Since each player can ban a champion, there are a total of 10 bans per game. During tournaments some champions are more banned than others. This leads us to our question:
 
 ### If a team doesn't ban the most banned champions, are they more likely to lose?
 
@@ -2226,7 +2226,7 @@ Consider the match below:
 
 If we take a look at the [recording](https://www.youtube.com/live/fbbsRe2eTLg?feature=shared&t=20375){:target="_blank"}, we can see that T1 did not ban a champion for their third slot! According to the announcers, players will sometimes ban no one because they want to leave a powerful champion avaiable to be picked for their own team.  
 
-Additionally, players sometimes forgoe a ban because they see it as an opportunity to learn and improve at the game. If they are forced to go against some of the most powerful champions in game, they can develop strategies to counter said champion and also get better.
+Additionally, players sometimes forgo a ban because they see it as an opportunity to learn and improve at the game. If they are forced to go against some of the most powerful champions in game, they can develop strategies to counter said champion and also get better.
 
 Finally, there may be some misreports. Consider the match below: 
 
@@ -2283,7 +2283,36 @@ At first glance, it may appear here that no one on either team banned a champion
 
 ## Missingness Dependency
 
+Although we have concluded that our data is missing by design, running analysis to see if the missigness is dependent on other colums can still prove valuable. Since `ban5` contains the most missing values, we will preform our analysis on this column. We will run permutation tests to see `ban5` is missing dependent on both `gameid` and `ban1`
 
+> `ban5` and `gameid`
+
+Null hypothesis: the distribution of `gameid` when `ban5` is missing is about the same as the distribution of the `gameid` when `ban5` is not missing
+Alternative hypothesis: the distribution of `gameid` when `ban5` is missing is different than the distribution of the `gameid` when `ban5` is not missing
+Test statistic: TVD between `gameid` and `ban5`, since `gameid` is categorical
+
+<div class="table-wrapper" markdown="block">
+
+<iframe src="assets/gameidvsban5.html" width=725 height=500 frameBorder=0></iframe>
+
+</div>
+
+We calculate a p-value of 0.0308. Since this is less than our significiance level of .05, we reject the null, and conclude that the missingness of `ban5` is dependent on `'gameid'`. Essentally, whether or not a team forgoes their last ban is dependent on the game. 
+
+Certain teams may be more comfortable forfeiting a ban depending on who they are up against. Forfiting a ban is generally considered a bad idea. Since it isn't advisible to not use a ban, it may be the case that teams forfit bans only in matches where they feel very confident against their oppnent. As a result, teams may be more willing to forfeit a ban depending on the match up, making the missing data in `'ban5'` dependent on `'gameid'`.
+
+> `ban5` and `ban1`
+Null hypothesis: the distribution of `ban1` when `ban5` is missing is about the same as the distribution of the `ban1` when `ban5` is not missing
+Alternative hypothesis: the distribution of `ban1` when `ban5` is missing is different than the distribution of the `ban1` when `ban5` is not missing
+TVD between `ban1` and `ban5`, since `ban1` is categorical
+
+<div class="table-wrapper" markdown="block">
+
+<iframe src="assets/ban1vsban5.html" width=725 height=500 frameBorder=0></iframe>
+
+</div>
+
+We calculate a p-value of 0.0682. Since this is greater than our significance level of .05 we fail to reject the null, and conclude that the missingness of `ban5` is not dependent on `ban1`. Essentially, whether or not a team choses to forfit their last ban is not dependent on their first ban. 
 
 
 
