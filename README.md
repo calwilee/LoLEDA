@@ -1847,7 +1847,7 @@ We renamed the `result` column to `win` and converted it to type bool, as we tho
 
 > Grouping and Aggrigations
 
-In order to have a dataframe that contains infomation about the champions played and banned per match, we created two dataframes. For both DataFrames, we grouped by `league`, `gameid`, and `teamname`. However, for the first dataframe, created a custom aggregation to combine the champions played for each team into a list. For the second DataFrame, we aggregated by the first series value to get champions banned, as this value is repeated for each match. We then preformed an inner megre between the two dataframes together by index. 
+In order to have a dataframe that contains infomation about the champions played and banned per match, we created two dataframes. For both DataFrames, we grouped by `league`, `gameid`, and `teamname`. For the first DataFrame we created a custom aggregation to combine the champions played for each team into a list. For the second DataFrame, we aggregated by the first series value to get champions banned, as this value is repeated for each match. We then preformed an inner megre between the two dataframes together by index. 
 
 > Finding the Most Banned Champions
 
@@ -1872,9 +1872,9 @@ These were the top 15 most banned champions:
 
 We consider a champion to be a "top ban" if it is in the top 15 most banned champions. 
 
-> Adding a `num_top_bannd` and `top_ban_present` column 
+> Adding a `num_top_bannd` and `num_top_drafted` column 
 
-Using a custom function, we then count how many times a top ban was banned in each match from our merged dataframe, and add it to a `num_top_bannd` column. Using a similar agregation function, we count how many times a top ban was drafted, and add it to a `top_ban_present` column and reset the index of our dataframe. 
+Using a custom function, we then count how many times a top ban was banned in each match from our merged dataframe, and add it to a `num_top_bannd` column. Using a similar agregation function, we count how many times a top ban was drafted, and add it to a `num_top_drafted` column and reset the index of our dataframe. 
 
 Here are the first 10 rows of our cleaned dataframe!
 
@@ -1892,7 +1892,7 @@ Here are the first 10 rows of our cleaned dataframe!
       <th>win</th>
       <th>champion</th>
       <th>num_top_banned</th>
-      <th>top_ban_present</th>
+      <th>num_top_drafted</th>
     </tr>
   </thead>
   <tbody>
@@ -2074,14 +2074,14 @@ This graph tells a very different story than our previous one. It seems that if 
 
 ## Interesting Aggregates
 
-In our bivariate analysis, we anlayzed the relationship between banning a top ban and winrate, and drafting a top ban and winrate.  Lets expolore the relationship between between both `num_top_banned`, `top_ban_present` and win rate. The idea behind this is to look at what happens when a team chooses to ban a certain number of champions from `top_bans` and when they decide to play a certain number of them. 
+In our bivariate analysis, we anlayzed the relationship between banning a top ban and winrate, and drafting a top ban and winrate.  Lets expolore the relationship between between both `num_top_banned`, `num_top_drafted` and win rate. The idea behind this is to look at what happens when a team chooses to ban a certain number of champions from `top_bans` and when they decide to play a certain number of them. 
 
-To do so we can utlize a pivot table that shows the ****mean win rate for the number of top banned champions conditioned on the number of top bans present in a team. Essentally, our pivot table shows the winrate given x number of top bans banned, and y number of top bans drafted.
+To do so we can utlize a pivot table that shows the mean win rate for each value of `num_top_banned` conditioned on the values of `num_top_drafted`. Essentally, our pivot table shows the mean winrate given `x` number of top bans banned, and `y` number of top bans drafted.
 
 <table border="1" class="dataframe">
   <thead>
     <tr style="text-align: right;">
-      <th>top_ban_present</th>
+      <th>num_top_drafted</th>
       <th>0</th>
       <th>1</th>
       <th>2</th>
@@ -2149,7 +2149,9 @@ To do so we can utlize a pivot table that shows the ****mean win rate for the nu
   </tbody>
 </table>
 
-Generally speaking, it looks like the less a team banned a champion in top_bans and the more champions a team later chose, it seems like there is a general increase in win rate. However, it is important to note that this doesn't always hold true as when there are 0 banned and 4 played, the win rate is lower than what would be expected. In addition to that, there are times where when a team chooses too much from top_bans, their win rate also goes down. This could imply that there are other factors at play here outside the scope of our analysis that impacts the chances of a team winning. Another reason behind these discrepancies is that there is not as much data on these scenarios, so the win rate varies more.
+It appears the fewer top bans a team bans, and the more a team drafts top bans, the greater the team's winrate. However, it is important to note that this is not always true. For instance, banning 0 top bans and drafting 4 seems to be an exception. 
+
+In addition to that, there are times where when a team chooses too much from top_bans, their win rate also goes down. This could imply that there are other factors at play here outside the scope of our analysis that impacts the chances of a team winning. Another reason behind these discrepancies is that there is not as much data on these scenarios, so the win rate varies more.
 
 ## Assesment of Missingness 
 
