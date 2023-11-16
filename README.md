@@ -2024,9 +2024,9 @@ Here are the first 10 rows of our cleaned dataframe!
   </tbody>
 </table>
 
-## Univariate Analysis
+## Bivariate Analysis
 
-For our univariate analysis, we found the winrate for each number of top bans:
+For our bivariate analysis, we found the winrate for each number of top bans:
 
 <div class="table-wrapper" markdown="block">
 
@@ -2044,8 +2044,9 @@ We can find the number of top bans present in `champion` and find the mean winre
 
 </div>
 
+This graph tells a very different story than our previous one. It seems that if a team drafts a "top ban" then their chances of winning increace! This makes sense, as top bans should be strong champions, helping to increace the overall strength of a team. 
 
-
+## Interesting Aggregates
 
 
 
