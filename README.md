@@ -1841,13 +1841,17 @@ For this analysis, we are going to be focusing on tier-one leagues, Worlds, and 
 
 If we take a look at our dataframe, we notice it contains two summary rows for each match. We will drop these rows in order to combine values in `champion`.
 
+> Correcting Result Column
+
+We renamed the `result` column to `win` and converted it to type bool, as we thought this would make more sense intuitively. 
+
 > Grouping and Aggrigations
 
-In order to have a dataframe that contains infomation about the champions played and banned per match, we created two dataframes. For both DataFrames, we grouped by `league`, `gameid`, and `teamname`. However, for the first dataframe, created a custom aggrrgation to combine the champions played for each team into a list. For the second DataFrame, we aggregated by the first series value to get champions banned, as this value is repeated for each match. We then preformed an inner megre between the two dataframes together by index. 
+In order to have a dataframe that contains infomation about the champions played and banned per match, we created two dataframes. For both DataFrames, we grouped by `league`, `gameid`, and `teamname`. However, for the first dataframe, created a custom aggregation to combine the champions played for each team into a list. For the second DataFrame, we aggregated by the first series value to get champions banned, as this value is repeated for each match. We then preformed an inner megre between the two dataframes together by index. 
 
 > Finding the Most Banned Champions
 
-Using our dataframe from the previous step, we counted how many times each champion was banned and sorted by count. 
+Using our DataFrame from the previous step, we counted how many times each champion was banned and sorted by count. 
 
 These were the top 15 most banned champions:
 1. Zeri            1608
@@ -1868,9 +1872,9 @@ These were the top 15 most banned champions:
 
 We consider a champion to be a "top ban" if it is in the top 15 most banned champions. 
 
-> Adding a `num_top_bannd` column, modifiying result column. 
+> Adding a `num_top_bannd` and `top_ban_present` column 
 
-Using a custom function, we then count how many times a top ban was banned in each match from our merged dataframe, and add it to a `num_top_bannd` column, and reset the index of our dataframe. We also renamed the `result` column to `Win` and converted it to type bool. 
+Using a custom function, we then count how many times a top ban was banned in each match from our merged dataframe, and add it to a `num_top_bannd` column. Using a similar agregation function, we count how many times a top ban was drafted, and add it to a `top_ban_present` column and reset the index of our dataframe. 
 
 Here are the first 10 rows of our cleaned dataframe!
 
@@ -1888,6 +1892,7 @@ Here are the first 10 rows of our cleaned dataframe!
       <th>win</th>
       <th>champion</th>
       <th>num_top_banned</th>
+      <th>top_ban_present</th>
     </tr>
   </thead>
   <tbody>
@@ -1903,6 +1908,7 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>False</td>
       <td>[Akali, Xin Zhao, Orianna, Jhin, Leona]</td>
       <td>3</td>
+      <td>0</td>
     </tr>
     <tr>
       <td>CBLOL</td>
@@ -1916,6 +1922,7 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>True</td>
       <td>[Renekton, Viego, Corki, Aphelios, Nautilus]</td>
       <td>1</td>
+      <td>0</td>
     </tr>
     <tr>
       <td>CBLOL</td>
@@ -1928,6 +1935,7 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>Jayce</td>
       <td>False</td>
       <td>[Gwen, Xin Zhao, Orianna, Jhin, Maokai]</td>
+      <td>1</td>
       <td>1</td>
     </tr>
     <tr>
@@ -1942,6 +1950,7 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>True</td>
       <td>[Tryndamere, Viego, Vex, Kai'Sa, Leona]</td>
       <td>2</td>
+      <td>0</td>
     </tr>
     <tr>
       <td>CBLOL</td>
@@ -1955,6 +1964,7 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>False</td>
       <td>[Gwen, Xin Zhao, LeBlanc, Sivir, Karma]</td>
       <td>0</td>
+      <td>2</td>
     </tr>
     <tr>
       <td>CBLOL</td>
@@ -1968,6 +1978,7 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>True</td>
       <td>[Graves, Lee Sin, Viktor, Caitlyn, Nautilus]</td>
       <td>1</td>
+      <td>2</td>
     </tr>
     <tr>
       <td>CBLOL</td>
@@ -1980,6 +1991,7 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>Karma</td>
       <td>True</td>
       <td>[Gwen, Xin Zhao, Akali, Samira, Rell]</td>
+      <td>1</td>
       <td>1</td>
     </tr>
     <tr>
@@ -1994,6 +2006,7 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>False</td>
       <td>[Gragas, Viego, Corki, Ezreal, Yuumi]</td>
       <td>2</td>
+      <td>1</td>
     </tr>
     <tr>
       <td>CBLOL</td>
@@ -2007,6 +2020,7 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>True</td>
       <td>[Graves, Jarvan IV, Zoe, Caitlyn, Lux]</td>
       <td>2</td>
+      <td>1</td>
     </tr>
     <tr>
       <td>CBLOL</td>
@@ -2020,6 +2034,7 @@ Here are the first 10 rows of our cleaned dataframe!
       <td>False</td>
       <td>[Jayce, Viego, Viktor, Jhin, Karma]</td>
       <td>1</td>
+      <td>0</td>
     </tr>
   </tbody>
 </table>
@@ -2134,7 +2149,9 @@ To do so we can utlize a pivot table that shows the ****mean win rate for the nu
   </tbody>
 </table>
 
+Generally speaking, it looks like the less a team banned a champion in top_bans and the more champions a team later chose, it seems like there is a general increase in win rate. However, it is important to note that this doesn't always hold true as when there are 0 banned and 4 played, the win rate is lower than what would be expected. In addition to that, there are times where when a team chooses too much from top_bans, their win rate also goes down. This could imply that there are other factors at play here outside the scope of our analysis that impacts the chances of a team winning. Another reason behind these discrepancies is that there is not as much data on these scenarios, so the win rate varies more.
 
+## Assesment of Missingness 
 
 
 
