@@ -2045,7 +2045,7 @@ Now that we have our cleaned dataframe, lets take a look at generally how many t
 
 <div class="table-wrapper" markdown="block">
 
-<iframe src="assets/numfreqbanned.html" width=750 height=500 frameBorder=0></iframe>
+<iframe src="assets/numfreqbanned.html" width=725 height=500 frameBorder=0></iframe>
 
 </div>
 
@@ -2056,7 +2056,7 @@ We can see that most teams ban 1 - 3 top bans during a match. Very rarely do tea
 Lets take a look at the average win rate per number of top bans banned. We utilize `num_top_banned` and `win`
 <div class="table-wrapper" markdown="block">
 
-<iframe src="assets/winratepernumbanned.html" width=750 height=500 frameBorder=0></iframe>
+<iframe src="assets/winratepernumbanned.html" width=725 height=500 frameBorder=0></iframe>
 
 </div>
 
@@ -2066,7 +2066,7 @@ Lets take a look at how a top ban's presence in a team's draft impacts winrate. 
 
 <div class="table-wrapper" markdown="block">
 
-<iframe src="assets/topbanpresentinteam.html" width=750 height=500 frameBorder=0></iframe>
+<iframe src="assets/topbanpresentinteam.html" width=725 height=500 frameBorder=0></iframe>
 
 </div>
 
@@ -2302,6 +2302,7 @@ We calculate a p-value of 0.0308. Since this is less than our significiance leve
 Certain teams may be more comfortable forfeiting a ban depending on who they are up against. Forfiting a ban is generally considered a bad idea. Since it isn't advisible to not use a ban, it may be the case that teams forfit bans only in matches where they feel very confident against their oppnent. As a result, teams may be more willing to forfeit a ban depending on the match up, making the missing data in `'ban5'` dependent on `'gameid'`.
 
 > `ban5` and `ban1`
+
 Null hypothesis: the distribution of `ban1` when `ban5` is missing is about the same as the distribution of the `ban1` when `ban5` is not missing
 Alternative hypothesis: the distribution of `ban1` when `ban5` is missing is different than the distribution of the `ban1` when `ban5` is not missing
 TVD between `ban1` and `ban5`, since `ban1` is categorical
