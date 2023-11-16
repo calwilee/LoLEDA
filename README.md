@@ -2283,12 +2283,12 @@ At first glance, it may appear here that no one on either team banned a champion
 
 ## Missingness Dependency
 
-Although we have concluded that our data is missing by design, running analysis to see if the missigness is dependent on other colums can still prove valuable. Since `ban5` contains the most missing values, we will preform our analysis on this column. We will run permutation tests to see `ban5` is missing dependent on both `gameid` and `ban1`
+Although we have concluded that our data is missing by design, running analysis to see if the missigness is dependent on other colums can still prove valuable. Since `ban5` contains the most missing values, we will preform our analysis on this column. We will run permutation tests to see `ban5` is missing dependent on both `gameid` and `ban1`.
 
 > `ban5` and `gameid`
 
-Null hypothesis: the distribution of `gameid` when `ban5` is missing is about the same as the distribution of the `gameid` when `ban5` is not missing\
-Alternative hypothesis: the distribution of `gameid` when `ban5` is missing is different than the distribution of the `gameid` when `ban5` is not missing\
+**Null Hypothesis:** the distribution of `gameid` when `ban5` is missing is about the same as the distribution of the `gameid` when `ban5` is not missing\
+**Alternative Hypothesis:** the distribution of `gameid` when `ban5` is missing is different than the distribution of the `gameid` when `ban5` is not missing\
 Test statistic: TVD between `gameid` and `ban5`, since `gameid` is categorical
 
 <div class="table-wrapper" markdown="block">
@@ -2303,8 +2303,8 @@ Certain teams may be more comfortable forfeiting a ban depending on who they are
 
 > `ban5` and `ban1`
 
-Null hypothesis: the distribution of `ban1` when `ban5` is missing is about the same as the distribution of the `ban1` when `ban5` is not missing\
-Alternative hypothesis: the distribution of `ban1` when `ban5` is missing is different than the distribution of the `ban1` when `ban5` is not missing\
+**Null Hypothesis:** the distribution of `ban1` when `ban5` is missing is about the same as the distribution of the `ban1` when `ban5` is not missing\
+**Alternative Hypothesis:** the distribution of `ban1` when `ban5` is missing is different than the distribution of the `ban1` when `ban5` is not missing\
 TVD between `ban1` and `ban5`, since `ban1` is categorical
 
 <div class="table-wrapper" markdown="block">
@@ -2319,6 +2319,7 @@ We calculate a p-value of 0.0682. Since this is greater than our significance le
 Now that we've cleaned the data, performed an exploratory data analysis, and assessed the missing data in our dataset, we are now ready to answer our question: If a team doesn't ban the most banned champions, are they more likely to lose?
 
 We will perform a permutation test with a significance level of 0.05 and with the following null and alternate hypothesis:\
+
 **Null Hypothesis:** If a team doesn't ban at least 1 of the top banned champions, they have the same win rate as those who did ban at least 1 of the top banned champions.\\
 **Alternate Hypothesis:** If a team doesn't ban at least 1 of the top banned champions, they have a lower win rate as those who did ban at least 1 of the top banned champions.\\
 
@@ -2330,6 +2331,6 @@ As for our test statistic, we will use the differnece in means since we are inte
 
 </div>
 
-We calculate a p-value of 0.0004. Since this is greater than our significance level of .05 we fail to reject our null. From this we can say that the data suggests that banning at least one top ban leads to a lower winrate in comparison to teams that did not ban a top ban. 
+We calculate a p-value of 0.0004. Since this is below our significance level of .05 we reject our null. From this we can say that the data suggests that banning at least one top ban leads to a lower winrate in comparison to teams that did not ban a top ban. 
 
 
