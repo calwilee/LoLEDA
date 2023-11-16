@@ -1829,7 +1829,7 @@ We filter our dataframe to contain only these columns:
   </tbody>
 </table>
 
-## Data Cleaning and EDA
+## Data Cleaning
 ![cute poros :D](/images/trsnsiont2.webp)
 Before we begin analysis, we must first clean, organize and aggregate our data.
 
@@ -1868,9 +1868,9 @@ These were the top 15 most banned champions:
 
 We consider a champion to be a "top ban" if it is in the top 15 most banned champions. 
 
-> Adding a `num_top_bannd` column
+> Adding a `num_top_bannd` column, modifiying result column. 
 
-Using a custom function, we then count how many times a top ban was banned in each match from our merged dataframe, and add it to a `num_top_bannd` column, and reset the index of our dataframe. 
+Using a custom function, we then count how many times a top ban was banned in each match from our merged dataframe, and add it to a `num_top_bannd` column, and reset the index of our dataframe. We also renamed the `result` column to `Win` and converted it to type bool. 
 
 Here are the first 10 rows of our cleaned dataframe!
 
@@ -2026,8 +2026,23 @@ Here are the first 10 rows of our cleaned dataframe!
 
 ## Univariate Analysis
 
+For our univariate analysis, we found the winrate for each number of top bans:
 
+<div class="table-wrapper" markdown="block">
 
+<iframe src="assets/winratepernumbanned.html" width=750 height=500 frameBorder=0></iframe>
+
+</div>
+
+It seems like the more a team bans a "top ban" the more likely they are to lose! This is a bit counterintuitive, as one would think that banning more powerful champions would lead to higher winrate. However, we have yet to consider the fact that just because a champion wasn't banned doesn't mean that they were played. If no one chose to play that champion, it would be as if they were banned from the game.
+
+We can find the number of top bans present in `champion` and find the mean winreate per count. 
+
+<div class="table-wrapper" markdown="block">
+
+<iframe src="assets/topbanpresentinteam.html" width=750 height=500 frameBorder=0></iframe>
+
+</div>
 
 
 
@@ -2041,7 +2056,7 @@ Lets plot these values:
 
 <div class="table-wrapper" markdown="block">
 
-<iframe src="assets/withline.html" width=750 height=500 frameBorder=0></iframe>
+<iframe src="assets/winratepernumbanned.html" width=750 height=500 frameBorder=0></iframe>
 
 </div>
 Plot of champions and the number of times they were banned 
