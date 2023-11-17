@@ -2282,7 +2282,7 @@ Finally, there may be some misreports. Consider the match below:
   </tbody>
 </table>
 
-At first glance, it may appear here that no one on either team banned a champion. If we take a look at the [recording](https://www.twitch.tv/videos/1302904867?t=05h29m25s){:target="_blank"}, we can see that the teams did ban champions. Even though this occurrence would be a case of MCAR, it appears that the majority of the bans were correctly reported. As a result, we can conclude that the missing values in the ban columns are missing by design. When a player chooses not to ban a champion, there is no banned champion to report, so the data is missing. 
+At first glance, it may appear no one on either team banned a champion. If we take a look at the [recording](https://www.twitch.tv/videos/1302904867?t=05h29m25s){:target="_blank"}, we can see that the teams did ban champions. Even though this occurrence would be a case of MCAR, it appears that the majority of the bans were correctly reported. As a result, we can conclude that the missing values in the ban columns are missing by design. When a player chooses not to ban a champion, there is no banned champion to report, so the data is missing. 
 
 ## Missingness Dependency
 
