@@ -1645,7 +1645,7 @@ For this project, we are going to look at Oracle's Elixer's League of Legends Co
   </tbody>
 </table>
 
-`lol_2022` contains 149400 rows that has information about each player during a game and 123 columns that describes different attributes of the game. Let's look at what the columns of `lol_2022` are.
+`lol_2022` contains 149400 rows that have information about each player during a game and 123 columns that describe different attributes of the game. Let's look at what the columns of `lol_2022` are.
 ```py
 print(lol_2022.columns.tolist())
 ['gameid', 'datacompleteness', 'url', 'league', 'year', 'split', 'playoffs', 'date', 'game', 'patch', 'participantid', 'side', 'position', 'playername', 'playerid', 'teamname', 'teamid', 'champion', 'ban1', 'ban2', 'ban3', 'ban4', 'ban5', 'gamelength', 'result', 'kills', 'deaths', 'assists', 'teamkills', 'teamdeaths', 'doublekills', 'triplekills', 'quadrakills', 'pentakills', 'firstblood', 'firstbloodkill', 'firstbloodassist', 'firstbloodvictim', 'team kpm', 'ckpm', 'firstdragon', 'dragons', 'opp_dragons', 'elementaldrakes', 'opp_elementaldrakes', 'infernals', 'mountains', 'clouds', 'oceans', 'chemtechs', 'hextechs', 'dragons (type unknown)', 'elders', 'opp_elders', 'firstherald', 'heralds', 'opp_heralds', 'firstbaron', 'barons', 'opp_barons', 'firsttower', 'towers', 'opp_towers', 'firstmidtower', 'firsttothreetowers', 'turretplates', 'opp_turretplates', 'inhibitors', 'opp_inhibitors', 'damagetochampions', 'dpm', 'damageshare', 'damagetakenperminute', 'damagemitigatedperminute', 'wardsplaced', 'wpm', 'wardskilled', 'wcpm', 'controlwardsbought', 'visionscore', 'vspm', 'totalgold', 'earnedgold', 'earned gpm', 'earnedgoldshare', 'goldspent', 'gspd', 'total cs', 'minionkills', 'monsterkills', 'monsterkillsownjungle', 'monsterkillsenemyjungle', 'cspm', 'goldat10', 'xpat10', 'csat10', 'opp_goldat10', 'opp_xpat10', 'opp_csat10', 'golddiffat10', 'xpdiffat10', 'csdiffat10', 'killsat10', 'assistsat10', 'deathsat10', 'opp_killsat10', 'opp_assistsat10', 'opp_deathsat10', 'goldat15', 'xpat15', 'csat15', 'opp_goldat15', 'opp_xpat15', 'opp_csat15', 'golddiffat15', 'xpdiffat15', 'csdiffat15', 'killsat15', 'assistsat15', 'deathsat15', 'opp_killsat15', 'opp_assistsat15', 'opp_deathsat15']
@@ -1847,7 +1847,7 @@ We renamed the `result` column to `win` and converted it to type bool, as we tho
 
 > Grouping and Aggregations
 
-In order to create a DataFrame containing infomation about champions played and banned per match, we created two DataFrames. For both DataFrames, we grouped by `league`, `gameid`, and `teamname`. In the first DataFrame we created a custom aggregation to combine the champions played for each team into a list. As for the second DataFrame, we aggregated by the first series value to get champions banned, as this value is repeated for each match. We then preformed an inner megre between the two DataFrames together by index. 
+In order to create a DataFrame containing information about champions played and banned per match, we created two DataFrames. For both DataFrames, we grouped by `league`, `gameid`, and `teamname`. In the first DataFrame we created a custom aggregation to combine the champions played for each team into a list. As for the second DataFrame, we aggregate by the first series value to get champions banned, as this value is repeated for each match. We then performed an inner merge between the two DataFrames together by index. 
 
 > Finding the Most Banned Champions
 
@@ -1874,7 +1874,7 @@ We consider a champion to be a "top ban" if it is in the top 15 most banned cham
 
 > Adding a `num_top_banned` and `num_top_drafted` column 
 
-Using a custom function, we then count how many times a top ban was banned in each match from our merged DataFrame, and add it to a `num_top_banned` column. Using a similar agregation function, we count how many times a top ban was drafted, and add it to a `num_top_drafted` column and reset the index of our DataFrame. 
+Using a custom function, we then count how many times a top ban was banned in each match from our merged DataFrame, and add it to a `num_top_banned` column. Using a similar aggregation function, we count how many times a top ban was drafted, and add it to a `num_top_drafted` column and reset the index of our DataFrame. 
 
 Here are the first 10 rows of our cleaned DataFrame!
 
@@ -2041,7 +2041,7 @@ Here are the first 10 rows of our cleaned DataFrame!
 
 ## Univariate Analysis
 
-Now that we have our cleaned DataFrame, lets take a look at generally how many top bans a team bans. We can do so by plotting a histogram.
+Now that we have our cleaned DataFrame, let's take a look at generally how many top bans a team bans. We can do so by plotting a histogram.
 
 <div class="table-wrapper" markdown="block">
 
@@ -2053,7 +2053,7 @@ We can see that most teams ban 1 - 3 top bans during a match. Very rarely do tea
 
 ## Bivariate Analysis
 
-Lets take a look at the average win rate per number of top bans banned. We utilize `num_top_banned` and `win`.
+Let's take a look at the average win rate per number of top bans banned. We utilize `num_top_banned` and `win`.
 <div class="table-wrapper" markdown="block">
 
 <iframe src="assets/winratepernumbanned.html" width=725 height=500 frameBorder=0></iframe>
@@ -2062,7 +2062,7 @@ Lets take a look at the average win rate per number of top bans banned. We utili
 
 It seems like the more a team bans a "top ban" the more likely they are to lose! This is a bit counterintuitive, as one would think that banning more powerful champions would lead to higher win rate. However, we have yet to consider the fact that just because a champion wasn't banned doesn't mean that they were played. If no one chose to play that champion, it would be as if they were banned from the game.
 
-Lets take a look at how a top ban's presence in a team's draft impacts win rate. We can find the number of top bans present in `champion` and find the mean winreate per number of top bans present in a team. 
+Let's take a look at how a top ban's presence in a team's draft impacts win rate. We can find the number of top bans present in `champion` and find the mean win rate per number of top bans present in a team. 
 
 <div class="table-wrapper" markdown="block">
 
@@ -2070,13 +2070,15 @@ Lets take a look at how a top ban's presence in a team's draft impacts win rate.
 
 </div>
 
-This graph tells a very different story than our previous one. It seems that if a team drafts a "top ban" then their chances of winning increace! This makes sense, as top bans should be strong champions, helping to increace the overall strength of a team. 
+This graph tells a very different story than our previous one. It seems that if a team drafts a "top ban" then their chances of winning increase! This makes sense, as top bans should be strong champions, helping to increace the overall strength of a team. 
 
 ## Interesting Aggregates
 
-In our bivariate analysis, we anlayzed the relationship between banning a top ban and win rate, and drafting a top ban and win rate.  Lets expolore the relationship between between both `num_top_banned`, `num_top_drafted` and win rate. The idea behind this is to look at what happens when a team chooses to ban a certain number of champions from `top_bans` and when they decide to play a certain number of them. 
+In our bivariate analysis, we analyzed the relationship between banning a top ban and win rate, and drafting a top ban and win rate. Let's explore the relationship between `num_top_banned`, `num_top_drafted`, and win rate. The idea behind this is to look at what happens when a team chooses to ban a certain number of champions from `top_bans` and when they decide to play a certain number of them. 
 
-To do so we can utlize a pivot table that shows the mean win rate for each value of `num_top_banned` conditioned on the values of `num_top_drafted`. Essentally, our pivot table shows the mean win rate given `x` number of top bans banned, and `y` number of top bans drafted.
+To do so we can utilize a pivot table that shows the mean win rate for each value of `num_top_banned` conditioned on the values of `num_top_drafted`. Essentially, our pivot table shows the mean win rate given `x` number of top bans banned, and `y` number of top bans drafted.
+
+To ensure proper sample size, we only considered scenarios where there were at least 5 games played.
 
 <table border="1" class="dataframe">
   <thead>
@@ -2153,11 +2155,11 @@ It appears the fewer top bans a team bans, and the more a team drafts top bans, 
 
 In addition to that, there are times where when a team chooses too much from top_bans, their win rate also goes down. This could imply that there are other factors at play here outside the scope of our analysis that impacts the chances of a team winning. Another reason behind these discrepancies is that there is not as much data on these scenarios, so the win rate varies more.
 
-## Assesment of Missingness 
+## Assessment of Missingness 
 ![caitlyndetective](images/missingness.webp)
 
 ## NMAR Analysis
-Before preforming hypothesis testing, we need to first deal with missing values. We can begin by generating a dictonary containing the number of missing values per column 
+Before performing hypothesis testing, we need to first deal with missing values. We can begin by generating a dictionary containing the number of missing values per column 
 
 ```py
 {'league': 0,
@@ -2173,7 +2175,7 @@ Before preforming hypothesis testing, we need to first deal with missing values.
  'num_top_banned': 0,
  'top_ban_present': 0}
 ```
-All of our data that is missing is in a ban column. Perhaps this is because players chose to not ban a champion! Lets investigate further. 
+All of our data that is missing is in a ban column. Perhaps this is because players chose to not ban a champion! Let's investigate further. 
 
 Consider the match below:
 <table border="1" class="dataframe">
@@ -2225,9 +2227,9 @@ Consider the match below:
   </tbody>
 </table>
 
-If we take a look at the [recording](https://www.youtube.com/live/fbbsRe2eTLg?feature=shared&t=20375){:target="_blank"}, we can see that T1 did not ban a champion for their third slot! According to the announcers, players will sometimes ban no one because they want to leave a powerful champion avaiable to be picked for their own team.  
+If we take a look at the [recording](https://www.youtube.com/live/fbbsRe2eTLg?feature=shared&t=20375){:target="_blank"}, we can see that T1 did not ban a champion for their third slot! According to the announcers, players will sometimes ban no one because they want to leave a powerful champion available to be picked for their own team.  
 
-Additionally, players sometimes forgo a ban because they see it as an opportunity to learn and improve at the game. If they are forced to go against some of the most powerful champions in game, they can develop strategies to counter said champion and also get better.
+Additionally, players sometimes forgo a ban because they see it as an opportunity to improve. Forcing oneself to go against some of the most powerful champions in the game can help players to learn how to counter such champions and improve.
 
 Finally, there may be some misreports. Consider the match below: 
 
@@ -2280,16 +2282,16 @@ Finally, there may be some misreports. Consider the match below:
   </tbody>
 </table>
 
-At first glance, it may appear here that no one on either team banned a champion. If we take a look at the [recording](https://www.twitch.tv/videos/1302904867?t=05h29m25s){:target="_blank"}, we can see that they did ban champions. Even though this occurence would be a case of MCAR, it appears that the majority of the bans were correctly reported. As a result, we can conclude that the missing values in the ban columns are missing by design. When a player chooses not to ban a champion, there is no banned champion to report, so the data is missing. 
+At first glance, it may appear here that no one on either team banned a champion. If we take a look at the [recording](https://www.twitch.tv/videos/1302904867?t=05h29m25s){:target="_blank"}, we can see that they did ban champions. Even though this occurrence would be a case of MCAR, it appears that the majority of the bans were correctly reported. As a result, we can conclude that the missing values in the ban columns are missing by design. When a player chooses not to ban a champion, there is no banned champion to report, so the data is missing. 
 
 ## Missingness Dependency
 
-Although we have concluded that our data is missing by design, running analysis to see if the missigness is dependent on other colums can still prove valuable. Since `ban5` contains the most missing values, we will preform our analysis on this column. We will run permutation tests to see `ban5` is missing dependent on both `gameid` and `ban1`.
+Although we have concluded that our data is missing by design, running analysis to see if the missigness is dependent on other columns can still prove valuable. Since `ban5` contains the most missing values, we will perform our analysis on this column. We will run permutation tests to see `ban5` is missing depending on both `gameid` and `ban1`.
 
 > `ban5` and `gameid`
 
-**Null Hypothesis:** the distribution of `gameid` when `ban5` is missing is about the same as the distribution of the `gameid` when `ban5` is not missing\
-**Alternative Hypothesis:** the distribution of `gameid` when `ban5` is missing is different than the distribution of the `gameid` when `ban5` is not missing\
+**Null Hypothesis:** The distribution of `gameid` when `ban5` is missing is about the same as the distribution of the `gameid` when `ban5` is not missing\
+**Alternative Hypothesis:** The distribution of `gameid` when `ban5` is missing is different than the distribution of the `gameid` when `ban5` is not missing\
 Test statistic: TVD between `gameid` and `ban5`, since `gameid` is categorical
 
 <div class="table-wrapper" markdown="block">
@@ -2298,14 +2300,14 @@ Test statistic: TVD between `gameid` and `ban5`, since `gameid` is categorical
 
 </div>
 
-We calculate a p-value of 0.0308. Since this is less than our significiance level of .05, we reject the null, and conclude that the missingness of `ban5` is dependent on `'gameid'`. Essentally, whether or not a team forgoes their last ban is dependent on the game. 
+We calculate a p-value of 0.0308. Since this is less than our significance level of .05, we reject the null, and conclude that the missingness of `ban5` is dependent on `gameid`. Essentially, whether or not a team forgoes their last ban is dependent on the game. 
 
-Certain teams may be more comfortable forfeiting a ban depending on who they are up against. Forfiting a ban is generally considered a bad idea. Since it isn't advisible to not use a ban, it may be the case that teams forfit bans only in matches where they feel very confident against their oppnent. As a result, teams may be more willing to forfeit a ban depending on the match up, making the missing data in `'ban5'` dependent on `'gameid'`.
+Certain teams may be more comfortable forfeiting a ban depending on who they are up against. Forfeiting a ban is generally considered a bad idea. Since it isn't advisable to not use a ban, it may be the case that teams forfeit bans only in matches where they feel very confident against their opponent. As a result, teams may be more willing to forfeit a ban depending on the match up, making the missing data in `ban5` dependent on `gameid`.
 
 > `ban5` and `ban1`
 
-**Null Hypothesis:** the distribution of `ban1` when `ban5` is missing is about the same as the distribution of the `ban1` when `ban5` is not missing\
-**Alternative Hypothesis:** the distribution of `ban1` when `ban5` is missing is different than the distribution of the `ban1` when `ban5` is not missing\
+**Null Hypothesis:** The distribution of `ban1` when `ban5` is missing is about the same as the distribution of the `ban1` when `ban5` is not missing\
+**Alternative Hypothesis:** The distribution of `ban1` when `ban5` is missing is different than the distribution of the `ban1` when `ban5` is not missing\
 TVD between `ban1` and `ban5`, since `ban1` is categorical
 
 <div class="table-wrapper" markdown="block">
@@ -2314,18 +2316,18 @@ TVD between `ban1` and `ban5`, since `ban1` is categorical
 
 </div>
 
-We calculate a p-value of 0.0682. Since this is greater than our significance level of .05 we fail to reject the null, and conclude that the missingness of `ban5` is not dependent on `ban1`. Essentially, whether or not a team choses to forfit their last ban is not dependent on their first ban. 
+We calculate a p-value of 0.0682. Since this is greater than our significance level of .05 we fail to reject the null, and conclude that the missingness of `ban5` is not dependent on `ban1`. Essentially, whether or not a team choses to forfeit their last ban is not dependent on their first ban. 
 
 ## Hypothesis Testing
 ![heimerdinger](images/heimer.webp)
-Now that we've cleaned the data, performed an exploratory data analysis, and assessed the missing data in our dataset, we are now ready to answer our question: If a team doesn't ban the most banned champions, are they more likely to lose?
+Now that we've cleaned the data, performed an exploratory data analysis, and assessed the missing data in our dataset, we are now ready to answer our question.
 
 We will perform a permutation test with a significance level of 0.05 and with the following null and alternate hypothesis:
 
 **Null Hypothesis:** If a team doesn't ban at least 1 of the top banned champions, they have the same win rate as those who did ban at least 1 of the top banned champions.\\
 **Alternate Hypothesis:** If a team doesn't ban at least 1 of the top banned champions, they have a lower win rate as those who did ban at least 1 of the top banned champions.\\
 
-As for our test statistic, we will use the differnece in means since we are interested in a direction and we can calculate the mean win rate depending on if at least one top champion was banned.
+As for our test statistic, we will use the difference in means since we are interested in a direction and we can calculate the mean win rate depending on if at least one top champion was banned.
 
 <div class="table-wrapper" markdown="block">
 
@@ -2333,6 +2335,6 @@ As for our test statistic, we will use the differnece in means since we are inte
 
 </div>
 
-We calculate a p-value of 0.0004. Since this is below our significance level of .05 we reject our null. From this we can say that the data suggests that banning at least one top ban leads to a lower win rate in comparison to teams that did not ban a top ban. 
+We calculate a p-value of 0.0008. Since this is below our significance level of .05, we reject our null. From this we can say that the data suggests that banning at least one top ban leads to a lower win rate in comparison to teams that did not ban a top ban. Since League of Legends is such a complex game, we cannot fully attribute lower win rate to banning more top bans; too many confounding factors exist.
 
 
