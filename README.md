@@ -1651,20 +1651,20 @@ print(lol_2022.columns.tolist())
 ['gameid', 'datacompleteness', 'url', 'league', 'year', 'split', 'playoffs', 'date', 'game', 'patch', 'participantid', 'side', 'position', 'playername', 'playerid', 'teamname', 'teamid', 'champion', 'ban1', 'ban2', 'ban3', 'ban4', 'ban5', 'gamelength', 'result', 'kills', 'deaths', 'assists', 'teamkills', 'teamdeaths', 'doublekills', 'triplekills', 'quadrakills', 'pentakills', 'firstblood', 'firstbloodkill', 'firstbloodassist', 'firstbloodvictim', 'team kpm', 'ckpm', 'firstdragon', 'dragons', 'opp_dragons', 'elementaldrakes', 'opp_elementaldrakes', 'infernals', 'mountains', 'clouds', 'oceans', 'chemtechs', 'hextechs', 'dragons (type unknown)', 'elders', 'opp_elders', 'firstherald', 'heralds', 'opp_heralds', 'firstbaron', 'barons', 'opp_barons', 'firsttower', 'towers', 'opp_towers', 'firstmidtower', 'firsttothreetowers', 'turretplates', 'opp_turretplates', 'inhibitors', 'opp_inhibitors', 'damagetochampions', 'dpm', 'damageshare', 'damagetakenperminute', 'damagemitigatedperminute', 'wardsplaced', 'wpm', 'wardskilled', 'wcpm', 'controlwardsbought', 'visionscore', 'vspm', 'totalgold', 'earnedgold', 'earned gpm', 'earnedgoldshare', 'goldspent', 'gspd', 'total cs', 'minionkills', 'monsterkills', 'monsterkillsownjungle', 'monsterkillsenemyjungle', 'cspm', 'goldat10', 'xpat10', 'csat10', 'opp_goldat10', 'opp_xpat10', 'opp_csat10', 'golddiffat10', 'xpdiffat10', 'csdiffat10', 'killsat10', 'assistsat10', 'deathsat10', 'opp_killsat10', 'opp_assistsat10', 'opp_deathsat10', 'goldat15', 'xpat15', 'csat15', 'opp_goldat15', 'opp_xpat15', 'opp_csat15', 'golddiffat15', 'xpdiffat15', 'csdiffat15', 'killsat15', 'assistsat15', 'deathsat15', 'opp_killsat15', 'opp_assistsat15', 'opp_deathsat15']
 ```
 
-Upon looking at this list, we can see that not every columns will be useful to answering our question. We are interested in are `'league'`, `'gameid'`, `'teamname'`, `'ban1'`, `'ban2'`, `'ban3'`, `'ban4'`, `'ban5'`, `'champion'`, and `'result'`. 
+Upon looking at this list, we can see that not every columns will be useful to answering our question. We are interested in are `league`, `gameid`, `teamname`, `ban1`, `ban2`, `ban3`, `ban4`, `ban5`, `champion`, and `result`. 
 
-- `'league'`(str): The league/tournament the game took place
-- `'gameid'`(str): The game's id
-- `'teamname'`(str): The name of the team playing during the match
-- `'ban1'`(str): The name of the champion that was banned first
-- `'ban2'`(str): The name of the champion that was banned second
-- `'ban3'`(str): The name of the champion that was banned third
-- `'ban4'`(str): The name of the champion that was banned fourth
-- `'ban5'`(str): The name of the champion that was banned fifth
-- `'champion'`(str): The name of the champion the player is playing
-- `'result'`(int): The result of the match (0 = Team lost, 1 = Team won)
+- `league`(str): The league/tournament the game took place
+- `gameid`(str): The game's id
+- `teamname`(str): The name of the team playing during the match
+- `ban1`(str): The name of the champion that was banned first
+- `ban2`(str): The name of the champion that was banned second
+- `ban3`(str): The name of the champion that was banned third
+- `ban4`(str): The name of the champion that was banned fourth
+- `ban5`(str): The name of the champion that was banned fifth
+- `champion`(str): The name of the champion the player is playing
+- `result`(int): The result of the match (0 = Team lost, 1 = Team won)
 
-We filter our dataframe to contain only these columns:
+We filter our DataFrame to contain only these columns:
 
 <table border="1" class="dataframe">
   <thead>
@@ -1835,48 +1835,48 @@ Before we begin analysis, we must first clean, organize and aggregate our data.
 
 > Region Filtration
 
-For this analysis, we are going to be focusing on tier-one leagues, Worlds, and MSI, since these leagues contain the best players and highest quality gameplay. We filter for these leagues in our dataframe rows
+For this analysis, we are going to be focusing on tier-one leagues, Worlds, and MSI, since these leagues contain the best players and highest quality gameplay. We filter for these leagues in our DataFrame rows
 
 > Dropping Summary Rows
 
-If we take a look at our dataframe, we notice it contains two summary rows for each match. We will drop these rows in order to combine values in `champion`.
+If we take a look at our DataFrame, we notice it contains two summary rows for each match. We will drop these rows in order to combine values in `champion`.
 
 > Correcting Result Column
 
 We renamed the `result` column to `win` and converted it to type bool, as we thought this would make more sense intuitively. 
 
-> Grouping and Aggrigations
+> Grouping and Aggregations
 
-In order to have a dataframe that contains infomation about the champions played and banned per match, we created two dataframes. For both DataFrames, we grouped by `league`, `gameid`, and `teamname`. For the first DataFrame we created a custom aggregation to combine the champions played for each team into a list. For the second DataFrame, we aggregated by the first series value to get champions banned, as this value is repeated for each match. We then preformed an inner megre between the two dataframes together by index. 
+In order to create a DataFrame containing infomation about champions played and banned per match, we created two DataFrames. For both DataFrames, we grouped by `league`, `gameid`, and `teamname`. In the first DataFrame we created a custom aggregation to combine the champions played for each team into a list. As for the second DataFrame, we aggregated by the first series value to get champions banned, as this value is repeated for each match. We then preformed an inner megre between the two DataFrames together by index. 
 
 > Finding the Most Banned Champions
 
 Using our DataFrame from the previous step, we counted how many times each champion was banned and sorted by count. 
 
-These were the top 15 most banned champions:
-1. Zeri            1608
-2. Gwen            1097
-3. Kalista         1074
-4. Ahri             984
-5. LeBlanc          906
-6. Lucian           885
-7. Twisted Fate     798
-8. Sylas            790
-9. Caitlyn          776
-10. Lee Sin          748
-11. Wukong           697
-12. Yuumi            693
-13. Ryze             650
-14. Poppy            648
-15. Renata Glasc     642
+These were the top 15 most banned champions and their ban counts:
+1. Zeri: 1608
+2. Gwen: 1097
+3. Kalista: 1074
+4. Ahri: 984
+5. LeBlanc: 906
+6. Lucian: 885
+7. Twisted Fate: 798
+8. Sylas: 790
+9. Caitlyn: 776
+10. Lee Sin: 748
+11. Wukong: 697
+12. Yuumi: 693
+13. Ryze: 650
+14. Poppy: 648
+15. Renata Glasc: 642
 
-We consider a champion to be a "top ban" if it is in the top 15 most banned champions. 
+We consider a champion to be a "top ban" if it is in the top 15 most banned champions. We chose to set 15 as our cutoff, as the top 15 champions banned make up 40% of the total bans. 
 
 > Adding a `num_top_banned` and `num_top_drafted` column 
 
-Using a custom function, we then count how many times a top ban was banned in each match from our merged dataframe, and add it to a `num_top_banned` column. Using a similar agregation function, we count how many times a top ban was drafted, and add it to a `num_top_drafted` column and reset the index of our dataframe. 
+Using a custom function, we then count how many times a top ban was banned in each match from our merged DataFrame, and add it to a `num_top_banned` column. Using a similar agregation function, we count how many times a top ban was drafted, and add it to a `num_top_drafted` column and reset the index of our DataFrame. 
 
-Here are the first 10 rows of our cleaned dataframe!
+Here are the first 10 rows of our cleaned DataFrame!
 
 <table border="1" class="dataframe">
   <thead>
@@ -2041,7 +2041,7 @@ Here are the first 10 rows of our cleaned dataframe!
 
 ## Univariate Analysis
 
-Now that we have our cleaned dataframe, lets take a look at generally how many top bans a team bans. We can do so by plotting a histogram.
+Now that we have our cleaned DataFrame, lets take a look at generally how many top bans a team bans. We can do so by plotting a histogram.
 
 <div class="table-wrapper" markdown="block">
 
@@ -2053,16 +2053,16 @@ We can see that most teams ban 1 - 3 top bans during a match. Very rarely do tea
 
 ## Bivariate Analysis
 
-Lets take a look at the average win rate per number of top bans banned. We utilize `num_top_banned` and `win`
+Lets take a look at the average win rate per number of top bans banned. We utilize `num_top_banned` and `win`.
 <div class="table-wrapper" markdown="block">
 
 <iframe src="assets/winratepernumbanned.html" width=725 height=500 frameBorder=0></iframe>
 
 </div>
 
-It seems like the more a team bans a "top ban" the more likely they are to lose! This is a bit counterintuitive, as one would think that banning more powerful champions would lead to higher winrate. However, we have yet to consider the fact that just because a champion wasn't banned doesn't mean that they were played. If no one chose to play that champion, it would be as if they were banned from the game.
+It seems like the more a team bans a "top ban" the more likely they are to lose! This is a bit counterintuitive, as one would think that banning more powerful champions would lead to higher win rate. However, we have yet to consider the fact that just because a champion wasn't banned doesn't mean that they were played. If no one chose to play that champion, it would be as if they were banned from the game.
 
-Lets take a look at how a top ban's presence in a team's draft impacts winrate. We can find the number of top bans present in `champion` and find the mean winreate per number of top bans present in a team. 
+Lets take a look at how a top ban's presence in a team's draft impacts win rate. We can find the number of top bans present in `champion` and find the mean winreate per number of top bans present in a team. 
 
 <div class="table-wrapper" markdown="block">
 
@@ -2074,9 +2074,9 @@ This graph tells a very different story than our previous one. It seems that if 
 
 ## Interesting Aggregates
 
-In our bivariate analysis, we anlayzed the relationship between banning a top ban and winrate, and drafting a top ban and winrate.  Lets expolore the relationship between between both `num_top_banned`, `num_top_drafted` and win rate. The idea behind this is to look at what happens when a team chooses to ban a certain number of champions from `top_bans` and when they decide to play a certain number of them. 
+In our bivariate analysis, we anlayzed the relationship between banning a top ban and win rate, and drafting a top ban and win rate.  Lets expolore the relationship between between both `num_top_banned`, `num_top_drafted` and win rate. The idea behind this is to look at what happens when a team chooses to ban a certain number of champions from `top_bans` and when they decide to play a certain number of them. 
 
-To do so we can utlize a pivot table that shows the mean win rate for each value of `num_top_banned` conditioned on the values of `num_top_drafted`. Essentally, our pivot table shows the mean winrate given `x` number of top bans banned, and `y` number of top bans drafted.
+To do so we can utlize a pivot table that shows the mean win rate for each value of `num_top_banned` conditioned on the values of `num_top_drafted`. Essentally, our pivot table shows the mean win rate given `x` number of top bans banned, and `y` number of top bans drafted.
 
 <table border="1" class="dataframe">
   <thead>
@@ -2149,7 +2149,7 @@ To do so we can utlize a pivot table that shows the mean win rate for each value
   </tbody>
 </table>
 
-It appears the fewer top bans a team bans, and the more a team drafts top bans, the greater the team's winrate. However, it is important to note that this is not always true. For instance, banning 0 top bans and drafting 4 seems to be an exception. 
+It appears the fewer top bans a team bans, and the more a team drafts top bans, the greater the team's win rate. However, it is important to note that this is not always true. For instance, banning 0 top bans and drafting 4 seems to be an exception. 
 
 In addition to that, there are times where when a team chooses too much from top_bans, their win rate also goes down. This could imply that there are other factors at play here outside the scope of our analysis that impacts the chances of a team winning. Another reason behind these discrepancies is that there is not as much data on these scenarios, so the win rate varies more.
 
@@ -2333,6 +2333,6 @@ As for our test statistic, we will use the differnece in means since we are inte
 
 </div>
 
-We calculate a p-value of 0.0004. Since this is below our significance level of .05 we reject our null. From this we can say that the data suggests that banning at least one top ban leads to a lower winrate in comparison to teams that did not ban a top ban. 
+We calculate a p-value of 0.0004. Since this is below our significance level of .05 we reject our null. From this we can say that the data suggests that banning at least one top ban leads to a lower win rate in comparison to teams that did not ban a top ban. 
 
 
