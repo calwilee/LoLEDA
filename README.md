@@ -1,5 +1,5 @@
 ![lolimg](/images/lolbanner.jpeg)
-## Introduction-
+## Introduction
 League of Legends is a 5v5 multiplayer online battle arena. Each player fulfills one of 5 roles (Top, Mid, ADC, Support, and Jungle) and has the objective of destroying the enemy team's Nexus. Since its release, League of Legends has become one of the most played games in the world, ranking 5th overall for the [most popular PC games by monthly active users](https://newzoo.com/resources/rankings/top-20-pc-games){:target="_blank"}. 
 
 Along with being one of the most popular games globally, League of Legends is also the world's largest [esport](https://en.wikipedia.org/wiki/Esports){:target="_blank"}. During League of Legends esport tournaments, each player on both teams has the chance to ban a champion. When a champion is banned, they are removed from the pool of available champions and cannot be selected. Since each player can ban a champion, there are a total of 10 bans per game. During tournaments some champions are more banned than others. This leads us to our question:
